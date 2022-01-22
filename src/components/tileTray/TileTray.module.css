@@ -1,0 +1,7 @@
+.TileTray {
+  background-color: gray;
+  width: 90%;
+  margin: auto;
+  padding: 2rem;
+  list-style: none;
+}

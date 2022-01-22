@@ -1,0 +1,14 @@
+.TileSpace {
+  border: 0.1rem solid darkslategray;
+  width: 4rem;
+  aspect-ratio: 1/1;
+
+  display: flex;
+  align-items: flex-end;
+
+  padding: 0.2rem;
+  color: rgb(73, 72, 72);
+  font-size: 1.5rem;
+  line-height: 0.75;
+  text-shadow: 0px 0px 1px black;
+}

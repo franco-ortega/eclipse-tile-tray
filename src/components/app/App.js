@@ -1,7 +1,13 @@
+import TileTray from "../tileTray/TileTray";
 
 
 const App = () => {
-  return <div>Eclipse Tile Tray</div>;
+  return (
+    <>
+      <header><h1>Eclipse Tile Tray</h1></header>
+      <TileTray />
+    </>
+  );
 };
 
 export default App;

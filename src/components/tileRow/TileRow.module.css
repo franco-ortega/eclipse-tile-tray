@@ -1,0 +1,8 @@
+.TileRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  border: 0.25rem solid darkgray;
+  list-style: none;
+}
