@@ -1,5 +1,6 @@
 {
   "pink": [
+    1,
     {
       "slot": 2,
       "cost": { "min": 2, "max": 2},
@@ -42,6 +43,7 @@
     }
   ],
   "green": [
+    2,
     {
       "slot": 2,
       "cost": { "min": 2, "max": 2},
@@ -84,6 +86,7 @@
     }
   ],
   "tan": [
+    3,
     {
       "slot": 2,
       "cost": { "min": 2, "max": 2},
@@ -126,6 +129,7 @@
     }
   ],
   "black": [
+    4,
     {
       "slot": null,
       "cost": { "min": 5, "max": 5},
