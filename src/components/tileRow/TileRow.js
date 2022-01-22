@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import TileSpace from '../tileSpace/TileSpace';
+import styles from './TileRow.module.css';
 
 const TileRow = ({ section }) => {
   //The section will determine the number of TileSpaces needed in each row
@@ -23,9 +24,12 @@ const TileRow = ({ section }) => {
   }
 
 
-  return <div>{tileSpaceList.map((tileSpace, i) => (
+  return (
+  <ul className={styles.TileRow}>
+    {tileSpaceList.map((tileSpace, i) => (
     <li key={i}>{tileSpace}</li>
-  ))}</div>;
+  ))}
+  </ul>);
 };
 
 TileRow.propTypes = {

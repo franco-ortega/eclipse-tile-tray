@@ -1,9 +1,9 @@
 import TileRow from "../tileRow/TileRow";
-import style from './TileTray.module.css';
+import styles from './TileTray.module.css';
 
 const TileTray = () => {
   return(
-    <main className={style.TileTray}>
+    <main className={styles.TileTray}>
       <section>
         <TileRow section={1} />
       </section>
