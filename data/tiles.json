@@ -1,0 +1,165 @@
+{
+  "pink": [
+    {
+      "section": 2,
+      "cost": { "min": 2, "max": 2},
+      "title": "Pink 2"
+    },
+    {
+      "section": 4,
+      "cost": { "min": 3, "max": 4},
+      "title": "Pink 4"
+    },
+    {
+      "section": 6,
+      "cost": { "min": 4, "max": 6},
+      "title": "Pink 6"
+    },
+    {
+      "section": 8,
+      "cost": { "min": 5, "max": 8},
+      "title": "Pink 8"
+    },
+    {
+      "section": 10,
+      "cost": { "min": 6, "max": 10},
+      "title": "Pink 10"
+    },
+    {
+      "section": 12,
+      "cost": { "min": 6, "max": 12},
+      "title": "Pink 12"
+    },
+    {
+      "section": 14,
+      "cost": { "min": 7, "max": 14},
+      "title": "Pink 14"
+    },
+    {
+      "section": 16,
+      "cost": { "min": 8, "max": 16},
+      "title": "Pink 16"
+    }
+  ],
+  "green": [
+    {
+      "section": 2,
+      "cost": { "min": 2, "max": 2},
+      "title": "Pink 2"
+    },
+    {
+      "section": 4,
+      "cost": { "min": 3, "max": 4},
+      "title": "Pink 4"
+    },
+    {
+      "section": 6,
+      "cost": { "min": 4, "max": 6},
+      "title": "Pink 6"
+    },
+    {
+      "section": 8,
+      "cost": { "min": 5, "max": 8},
+      "title": "Pink 8"
+    },
+    {
+      "section": 10,
+      "cost": { "min": 6, "max": 10},
+      "title": "Pink 10"
+    },
+    {
+      "section": 12,
+      "cost": { "min": 6, "max": 12},
+      "title": "Pink 12"
+    },
+    {
+      "section": 14,
+      "cost": { "min": 7, "max": 14},
+      "title": "Pink 14"
+    },
+    {
+      "section": 16,
+      "cost": { "min": 8, "max": 16},
+      "title": "Pink 16"
+    }
+  ],
+  "tan": [
+    {
+      "section": 2,
+      "cost": { "min": 2, "max": 2},
+      "title": "Pink 2"
+    },
+    {
+      "section": 4,
+      "cost": { "min": 3, "max": 4},
+      "title": "Pink 4"
+    },
+    {
+      "section": 6,
+      "cost": { "min": 4, "max": 6},
+      "title": "Pink 6"
+    },
+    {
+      "section": 8,
+      "cost": { "min": 5, "max": 8},
+      "title": "Pink 8"
+    },
+    {
+      "section": 10,
+      "cost": { "min": 6, "max": 10},
+      "title": "Pink 10"
+    },
+    {
+      "section": 12,
+      "cost": { "min": 6, "max": 12},
+      "title": "Pink 12"
+    },
+    {
+      "section": 14,
+      "cost": { "min": 7, "max": 14},
+      "title": "Pink 14"
+    },
+    {
+      "section": 16,
+      "cost": { "min": 8, "max": 16},
+      "title": "Pink 16"
+    }
+  ],
+  "black": [
+    {
+      "section": null,
+      "cost": { "min": 5, "max": 5},
+      "title": "Conifold Field"
+    },
+    {
+      "section": null,
+      "cost": { "min": 5, "max": 5},
+      "title": "Neutron Absorber"
+    },
+    {
+      "section": null,
+      "cost": { "min": 5, "max": 5},
+      "title": "Antimatter Splitter"
+    },
+    {
+      "section": null,
+      "cost": { "min": 6, "max": 7},
+      "title": "Cloaking Device"
+    },
+    {
+      "section": null,
+      "cost": { "min": 7, "max": 9},
+      "title": "Transition Drive"
+    },
+    {
+      "section": null,
+      "cost": { "min": 7, "max": 9},
+      "title": "Warp Portal"
+    },
+    {
+      "section": null,
+      "cost": { "min": 11, "max": 17},
+      "title": "Metasynthesis"
+    }
+  ]
+}
