@@ -18,7 +18,7 @@ const TileRow = ({ section }) => {
   } else {
     console.log('Regular Tech Tiles');
     for(let i = 1; i < 9; i++) {
-      tileSpaceList.push(<TileSpace slot={1 * 2} />)
+      tileSpaceList.push(<TileSpace slot={i * 2} />)
     }
   }
 
