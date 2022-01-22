@@ -1,7 +1,8 @@
 .TileTray {
   background-color: gray;
   width: 90%;
-  margin: auto;
+  min-width: fit-content;
+  margin: 2rem auto;
   padding: 2rem;
   list-style: none;
 }
