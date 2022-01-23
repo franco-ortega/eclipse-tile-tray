@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styles from './TileSpace.module.css';
 
 const TileSpace = ({ slot, tile }) => {
-  console.log('SLOT: ', slot);
+  // console.log('SLOT: ', slot);
   if(tile) return {tile}
   return (
     <div className={styles.TileSpace}>

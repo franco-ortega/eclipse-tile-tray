@@ -1,0 +1,8 @@
+.Tile {
+  background-color: darkgreen;
+
+  width: 5rem;
+  aspect-ratio: 1/1;
+
+  color: aliceblue;
+}
