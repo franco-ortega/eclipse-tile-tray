@@ -91,7 +91,10 @@ const TileRow = ({ section, availableTiles }) => {
 
 TileRow.propTypes = {
   section: PropTypes.number.isRequired,
-  availableTiles: PropTypes.array
+  availableTiles: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.shape({})
+  ])
 };
 
 export default TileRow;
