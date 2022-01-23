@@ -5,14 +5,6 @@ import { useState } from "react/cjs/react.development";
 import { useEffect } from "react";
 
 const TileTray = ( {availableTiles} ) => {
-  console.log('TILES:');
-  if(availableTiles) {
-
-    console.log(availableTiles);
-    const pinkTiles = availableTiles.pink;
-    console.log('PINK: ', pinkTiles);
-  }
-
   const [tileData, setTileData] = useState({});
 
   const [pink, setPink] = useState([]);
@@ -37,8 +29,26 @@ const TileTray = ( {availableTiles} ) => {
   console.log(black);
   
 
-  // if(pink.length === 0) return <div>Loading...</div>
+  if(pink.length === 0) return <div>Loading...</div>
 
+
+
+  if(pink.length > 0) return(
+    <main className={styles.TileTray}>
+      <section>
+        <TileRow section={1} availableTiles={pink} />
+      </section>
+      <section>
+        <TileRow section={2} availableTiles={green}  />
+      </section>
+      <section>
+        <TileRow section={3} availableTiles={tan}  />
+      </section>
+      <section>
+        <TileRow section={4} availableTiles={black}  />
+      </section>
+    </main>
+  );
 
   if(pink.length === 0) return(
     <main className={styles.TileTray}>
@@ -57,22 +67,39 @@ const TileTray = ( {availableTiles} ) => {
     </main>
   );
 
-  if(pink.length > 0) return(
-    <main className={styles.TileTray}>
-      <section>
-        <TileRow section={1} availableTiles={pink} />
-      </section>
-      <section>
-        <TileRow section={2} availableTiles={green}  />
-      </section>
-      <section>
-        <TileRow section={3} availableTiles={tan}  />
-      </section>
-      <section>
-        <TileRow section={4} availableTiles={black}  />
-      </section>
-    </main>
-  );
+  // return pink ? 
+  //   <main className={styles.TileTray}>
+  //     <section>
+  //       <TileRow section={1} availableTiles={pink} />
+  //     </section>
+  //     <section>
+  //       <TileRow section={2} availableTiles={green}  />
+  //     </section>
+  //     <section>
+  //       <TileRow section={3} availableTiles={tan}  />
+  //     </section>
+  //     <section>
+  //       <TileRow section={4} availableTiles={black}  />
+  //     </section>
+  //   </main>
+  // :
+  //   <main className={styles.TileTray}>
+  //     <section>
+  //       <TileRow section={1} availableTiles={availableTiles} />
+  //     </section>
+  //     <section>
+  //       <TileRow section={2} availableTiles={availableTiles}  />
+  //     </section>
+  //     <section>
+  //       <TileRow section={3} availableTiles={availableTiles}  />
+  //     </section>
+  //     <section>
+  //       <TileRow section={4} availableTiles={availableTiles}  />
+  //     </section>
+  //   </main>
+
+
+  
 };
 
 TileTray.propTypes = {
