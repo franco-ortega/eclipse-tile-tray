@@ -1,5 +1,7 @@
 import TileTray from "../tileTray/TileTray";
 import availableTiles from '../../data/tiles.json';
+// import tilesArrayData from '../../data/tilesArray.json';
+// import tilesObjectData from '../../data/tilesObject.json';
 import { useEffect, useState } from "react";
 
 const App = () => {
