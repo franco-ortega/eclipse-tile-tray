@@ -1,6 +1,4 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-import { useState } from 'react';
 import Tile from '../tile/Tile';
 import TileSpace from '../tileSpace/TileSpace';
 import styles from './TileRow.module.css';
@@ -9,30 +7,15 @@ const TileRow = ({ section, availableTiles }) => {
   //The section will determine the number of TileSpaces needed in each row
   // Sections 1, 2, 3 will have 8 TilesSpaces
   // Section 4 will have 7 TilesSpaces
+  // Add "number of TileSpaces" to props (maybe?)
 
-  // Add "spaces to props"
-
-  const [rowData, setRowData] = useState(availableTiles);
-
-  useEffect(() => {
-    if(availableTiles) {
-      setRowData(availableTiles);
-      // console.log(rowData);
-      // rowData.forEach(item => {
-      //   console.log('row data');
-      //   console.log(item);
-      // });
-      
-    }
-  }, []);
-
-  console.log('FSOINONONODWNOIWNOINO')
-  if(rowData) {
-    if(typeof rowData[0] === 'number') rowData.shift();
+  // console.log('ROW DATA')
+  if(availableTiles) {
+    if(typeof availableTiles[0] === 'number') availableTiles.shift();
   }
-  // console.log(rowData);
 
-  // const tilesToDisplay = rowData.map((item, i) => (
+
+  // const tilesToDisplay = availableTiles.map((item, i) => (
   //   <li key={i}>
   //     <Tile
   //     slot={item.slot}
@@ -42,35 +25,31 @@ const TileRow = ({ section, availableTiles }) => {
   //   </li>
   // ));
 
-  // eslint-disable-next-line react/prop-types
-  // const { pink } = availableTiles;
-  // console.log(pink)
-  // const testing = Object.values(availableTiles);
-  // console.log('TESTING: ', testing)
-
+  
+  
   const tileSpaceList = []
 
   if(section === 4) {
-    // console.log('Alien Tech Tiles');
+    console.log('Alien Tech Tiles');
     for(let i = 1; i < 8; i++) {
-      if(rowData) {
+      if(availableTiles) {
         tileSpaceList.push(<Tile
-          slot={rowData[i - 1].slot}
-          cost={rowData[i - 1].cost}
-          title={rowData[i - 1].title}
+          slot={availableTiles[i - 1].slot}
+          cost={availableTiles[i - 1].cost}
+          title={availableTiles[i - 1].title}
           />)
       } else {
         tileSpaceList.push(<TileSpace slot={0} />)
       }
     }
   } else {
-    // console.log('Regular Tech Tiles');
+    console.log('Regular Tech Tiles');
     for(let i = 1; i < 9; i++) {
-      if(rowData) {
+      if(availableTiles) {
         tileSpaceList.push(<Tile
-          slot={rowData[i - 1].slot}
-          cost={rowData[i - 1].cost}
-          title={rowData[i - 1].title}
+          slot={availableTiles[i - 1].slot}
+          cost={availableTiles[i - 1].cost}
+          title={availableTiles[i - 1].title}
           />)
       } else {
         tileSpaceList.push(<TileSpace slot={i * 2} />)
@@ -78,8 +57,6 @@ const TileRow = ({ section, availableTiles }) => {
     }
   }
 
-  
-  
 
   return (
   <ul className={styles.TileRow}>

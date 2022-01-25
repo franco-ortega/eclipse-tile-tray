@@ -4,8 +4,7 @@ import styles from './TileTray.module.css';
 import { useState } from "react";
 import { useEffect } from "react";
 
-const TileTray = ( {availableTiles} ) => {
-  const [tileData, setTileData] = useState({});
+const TileTray = ({ availableTiles }) => {
 
   const [pink, setPink] = useState([]);
   const [green, setGreen] = useState([]);
@@ -14,7 +13,6 @@ const TileTray = ( {availableTiles} ) => {
 
   useEffect(() => {
     if(availableTiles) {
-      setTileData(availableTiles)
       setPink(availableTiles.pink);
       setGreen(availableTiles.green);
       setTan(availableTiles.tan);
@@ -22,33 +20,12 @@ const TileTray = ( {availableTiles} ) => {
     }
   }, [availableTiles]);
 
-  console.log(tileData);
-  console.log(pink);
-  console.log(green);
-  console.log(tan);
-  console.log(black);
-  
+  console.log({ pink });
+  console.log({ green });
+  console.log({ tan });
+  console.log({ black });
 
   if(pink.length === 0) return <div>Loading...</div>
-
-
-
-  if(pink.length > 0) return(
-    <main className={styles.TileTray}>
-      <section>
-        <TileRow section={1} availableTiles={pink} />
-      </section>
-      <section>
-        <TileRow section={2} availableTiles={green}  />
-      </section>
-      <section>
-        <TileRow section={3} availableTiles={tan}  />
-      </section>
-      <section>
-        <TileRow section={4} availableTiles={black}  />
-      </section>
-    </main>
-  );
 
   if(pink.length === 0) return(
     <main className={styles.TileTray}>
@@ -67,24 +44,42 @@ const TileTray = ( {availableTiles} ) => {
     </main>
   );
 
-  // return pink ? 
-  //   <main className={styles.TileTray}>
-  //     <section>
-  //       <TileRow section={1} availableTiles={pink} />
-  //     </section>
-  //     <section>
-  //       <TileRow section={2} availableTiles={green}  />
-  //     </section>
-  //     <section>
-  //       <TileRow section={3} availableTiles={tan}  />
-  //     </section>
-  //     <section>
-  //       <TileRow section={4} availableTiles={black}  />
-  //     </section>
-  //   </main>
-  // :
-  //   <main className={styles.TileTray}>
-  //     <section>
+  // if(pink.length > 0) 
+  return(
+    <main className={styles.TileTray}>
+      <section>
+        <TileRow section={1} availableTiles={pink} />
+      </section>
+      <section>
+        <TileRow section={2} availableTiles={green}  />
+      </section>
+      <section>
+        <TileRow section={3} availableTiles={tan}  />
+      </section>
+      <section>
+        <TileRow section={4} availableTiles={black}  />
+      </section>
+    </main>
+  );
+
+  // const blah = true;
+  // return (
+  //   <div className={styles.TileTray}>
+  //   {blah && <div>BLAH</div>}
+  //   {blah ? <div>BLAH</div> : <div>NO BLAH</div>}
+  //   </div>
+  // )
+
+  
+
+  // return (
+  //   <div className={styles.TileTray}>
+  //   {pink.length === 0
+  //   ?
+  //     <div>Loading...</div>
+  //   :
+  //     <main className={styles.TileTray}>
+  //       <section>
   //       <TileRow section={1} availableTiles={availableTiles} />
   //     </section>
   //     <section>
@@ -96,10 +91,14 @@ const TileTray = ( {availableTiles} ) => {
   //     <section>
   //       <TileRow section={4} availableTiles={availableTiles}  />
   //     </section>
-  //   </main>
+  //     </main>
+  //   }
+  //   </div>
+  // )
 
 
-  
+
+
 };
 
 TileTray.propTypes = {
