@@ -2,13 +2,13 @@ import PropTypes from 'prop-types';
 import Tile from '../tile/Tile';
 import styles from './TileSpace.module.css';
 
-const TileSpace = ({ slot, tile }) => {
+const TileSpace = ({ slot, tile, color }) => {
   // console.log('SLOT: ', slot);
   // TileSpace will return a tile space if no tile is present
   // Else it will return a TileSpace with the appropriate Tile in it
 
   // if(tile) return {tile}
-  console.log({ tile });
+  // console.log({ tile });
   return (
     <div className={styles.TileSpace}>
       {tile
@@ -17,6 +17,7 @@ const TileSpace = ({ slot, tile }) => {
         slot={tile.slot}
         cost={tile.cost}
         title={tile.title}
+        color={color}
       />
       :
       slot ? slot : null}
@@ -33,7 +34,8 @@ TileSpace.propTypes = {
       max: PropTypes.number.isRequired
     }).isRequired,
     title: PropTypes.string.isRequired
-  })
+  }),
+  color: PropTypes.string
 };
 
 export default TileSpace;
