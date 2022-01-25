@@ -1,5 +1,5 @@
 {
-  "pink": {
+  "hotpink": {
     "row": 1,
     "tiles": [
       {
@@ -36,7 +36,7 @@
       }
     ]
   },
-  "green": {
+  "darkgreen": {
     "row": 2,
     "tiles": [
       {
@@ -118,11 +118,7 @@
         "cost": { "min": 5, "max": 5},
         "title": "Neutron Absorber"
       },
-      {
-        "slot": 3,
-        "cost": { "min": 5, "max": 5},
-        "title": "Antimatter Splitter"
-      },
+      
       {
         "slot": 4,
         "cost": { "min": 6, "max": 7},

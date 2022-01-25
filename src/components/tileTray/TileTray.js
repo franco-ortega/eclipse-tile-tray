@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './TileTray.module.css';
 
 const TileTray = ({ availableTiles }) => {
+  console.log({ availableTiles })
   const tileRowList = [];
   
   for (const property in availableTiles) {
@@ -12,6 +13,7 @@ const TileTray = ({ availableTiles }) => {
       key={currentRow.row}
       section={currentRow.row}
       availableTiles={currentRow.tiles}
+      color={property}
     />
     );
   }

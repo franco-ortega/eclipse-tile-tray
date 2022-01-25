@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import TileSpace from '../tileSpace/TileSpace';
 import styles from './TileRow.module.css';
 
-const TileRow = ({ section, availableTiles }) => {
+const TileRow = ({ section, availableTiles, color }) => {
   //The section will determine the number of TileSpaces needed in each row
   // Sections 1, 2, 3 will have 8 TilesSpaces
   // Section 4 will have 7 TilesSpaces
@@ -14,7 +14,7 @@ const TileRow = ({ section, availableTiles }) => {
   // // Or it will receive no info
   // // Each TileSpace will display its Tile or an empty slot
 
-  console.log({ availableTiles })
+  // console.log({ color })
 
   const tileSpaceListNew = [];
   console.log({ tileSpaceListNew });
@@ -26,6 +26,7 @@ const TileRow = ({ section, availableTiles }) => {
           key={i}
           slot={0}
           tile={availableTiles[i - 1]}
+          color={color}
         />
       );
     }
@@ -47,6 +48,7 @@ const TileRow = ({ section, availableTiles }) => {
           key={i}
           slot={i * 2}
           tile={currentTile}
+          color={color}
         />
       );
     }
@@ -64,7 +66,8 @@ TileRow.propTypes = {
   availableTiles: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.shape({})
-  ])
+  ]),
+  color: PropTypes.string
 };
 
 export default TileRow;
