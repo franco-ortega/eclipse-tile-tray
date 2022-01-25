@@ -1,20 +1,20 @@
-import TileRow from "../tileRow/TileRow";
+import TileRowEmpty from "../tileRow/TileRowEmpty";
 import styles from './TileTray.module.css';
 
 const TileTrayEmpty = () => {
   return(
     <main className={styles.TileTray}>
       <section>
-        <TileRow section={1} />
+        <TileRowEmpty section={1} />
       </section>
       <section>
-        <TileRow section={2} />
+        <TileRowEmpty section={2} />
       </section>
       <section>
-        <TileRow section={3} />
+        <TileRowEmpty section={3} />
       </section>
       <section>
-        <TileRow section={4} />
+        <TileRowEmpty section={4} />
       </section>
     </main>
   );

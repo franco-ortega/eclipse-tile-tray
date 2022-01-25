@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import Tile from '../tile/Tile';
 import TileSpace from '../tileSpace/TileSpace';
 import styles from './TileRow.module.css';
 
@@ -9,61 +8,55 @@ const TileRow = ({ section, availableTiles }) => {
   // Section 4 will have 7 TilesSpaces
   // Add "number of TileSpaces" to props (maybe?)
 
-  // console.log('ROW DATA')
-  if(availableTiles) {
-    if(typeof availableTiles[0] === 'number') availableTiles.shift();
-  }
+  // If there are availableTiles (which would be one row of tiles at this point)
+  // Then create a list of TileSpaces
+  // // Each TileSpace will receive Tile info for its corresponding tile
+  // // Or it will receive no info
+  // // Each TileSpace will display its Tile or an empty slot
 
+  console.log({ availableTiles })
 
-  // const tilesToDisplay = availableTiles.map((item, i) => (
-  //   <li key={i}>
-  //     <Tile
-  //     slot={item.slot}
-  //     cost={item.cost}
-  //     title={item.title}
-  //     />
-  //   </li>
-  // ));
-
-  
-  
-  const tileSpaceList = []
+  const tileSpaceListNew = [];
+  console.log({ tileSpaceListNew });
 
   if(section === 4) {
-    console.log('Alien Tech Tiles');
-    for(let i = 1; i < 8; i++) {
-      if(availableTiles) {
-        tileSpaceList.push(<Tile
-          slot={availableTiles[i - 1].slot}
-          cost={availableTiles[i - 1].cost}
-          title={availableTiles[i - 1].title}
-          />)
-      } else {
-        tileSpaceList.push(<TileSpace slot={0} />)
-      }
+    for(let i = 1; i <= 7; i++) {
+      tileSpaceListNew.push(
+        <TileSpace
+          key={i}
+          slot={0}
+          tile={availableTiles[i - 1]}
+        />
+      );
     }
   } else {
-    console.log('Regular Tech Tiles');
-    for(let i = 1; i < 9; i++) {
-      if(availableTiles) {
-        tileSpaceList.push(<Tile
-          slot={availableTiles[i - 1].slot}
-          cost={availableTiles[i - 1].cost}
-          title={availableTiles[i - 1].title}
-          />)
-      } else {
-        tileSpaceList.push(<TileSpace slot={i * 2} />)
+    for(let i = 1; i <= 8; i++) {
+
+      let currentTile;
+
+      for(let j = 0; j <= 7; j++) {
+        const currentData = availableTiles[j];
+
+        if((i * 2) === currentData?.slot) {
+          currentTile = currentData
+        }
       }
+
+      tileSpaceListNew.push(
+        <TileSpace
+          key={i}
+          slot={i * 2}
+          tile={currentTile}
+        />
+      );
     }
   }
 
-
   return (
-  <ul className={styles.TileRow}>
-    {tileSpaceList.map((tileSpace, i) => (
-    <li key={i}>{tileSpace}</li>
-  ))}
-  </ul>);
+    <ul className={styles.TileRow}>
+      {tileSpaceListNew}
+    </ul>
+  );
 };
 
 TileRow.propTypes = {

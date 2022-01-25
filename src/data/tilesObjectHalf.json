@@ -17,16 +17,8 @@
         "cost": { "min": 4, "max": 6},
         "title": "Pink 6"
       },
-      {
-        "slot": 8,
-        "cost": { "min": 5, "max": 8},
-        "title": "Pink 8"
-      },
-      {
-        "slot": 10,
-        "cost": { "min": 6, "max": 10},
-        "title": "Pink 10"
-      },
+      
+      
       {
         "slot": 12,
         "cost": { "min": 6, "max": 12},
@@ -62,16 +54,13 @@
         "cost": { "min": 4, "max": 6},
         "title": "Green 6"
       },
+      
       {
         "slot": 8,
         "cost": { "min": 5, "max": 8},
         "title": "Green 8"
       },
-      {
-        "slot": 10,
-        "cost": { "min": 6, "max": 10},
-        "title": "Green 10"
-      },
+      
       {
         "slot": 12,
         "cost": { "min": 6, "max": 12},
@@ -81,22 +70,13 @@
         "slot": 14,
         "cost": { "min": 7, "max": 14},
         "title": "Green 14"
-      },
-      {
-        "slot": 16,
-        "cost": { "min": 8, "max": 16},
-        "title": "Green 16"
       }
     ]
   },
   "tan": {
     "row": 3,
     "tiles": [
-      {
-      "slot": 2,
-      "cost": { "min": 2, "max": 2},
-      "title": "Tan 2"
-      },
+      
       {
         "slot": 4,
         "cost": { "min": 3, "max": 4},
@@ -117,16 +97,7 @@
         "cost": { "min": 6, "max": 10},
         "title": "Tan 10"
       },
-      {
-        "slot": 12,
-        "cost": { "min": 6, "max": 12},
-        "title": "Tan 12"
-      },
-      {
-        "slot": 14,
-        "cost": { "min": 7, "max": 14},
-        "title": "Tan 14"
-      },
+      
       {
         "slot": 16,
         "cost": { "min": 8, "max": 16},
