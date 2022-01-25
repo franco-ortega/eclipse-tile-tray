@@ -1,16 +1,18 @@
 import TileTray from "../tileTray/TileTray";
-import availableTiles from '../../data/tiles.json';
 import TileTrayEmpty from "../tileTray/TileTrayEmpty";
+// import availableTiles from '../../data/tiles.json';
 // import tilesArrayData from '../../data/tilesArray.json';
-// import tilesObjectData from '../../data/tilesObject.json';
+import tilesObjectData from '../../data/tilesObject.json';
+import tilesObjectHalfData from '../../data/tilesObjectHalf.json';
 
 const App = () => {
   return (
     <>
       <header><h1>Eclipse Tech Tile Tray</h1></header>
-      <TileTray />
+      {/* <TileTray /> */}
       <TileTrayEmpty />
-      <TileTray availableTiles={availableTiles} />
+      <TileTray availableTiles={tilesObjectData} />
+      <TileTray availableTiles={tilesObjectHalfData} />
     </>
   );
 };

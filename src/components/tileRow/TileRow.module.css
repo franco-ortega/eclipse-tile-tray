@@ -4,10 +4,5 @@
   justify-content: space-evenly;
 
   border: 0.25rem solid darkgray;
-  list-style: none;
-
-  /* width: fit-content; */
-
-  /* align-self: center; */
-  /* align-content: center; */
+  /* list-style: none; */
 }

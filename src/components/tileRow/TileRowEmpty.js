@@ -6,8 +6,7 @@ const TileRowEmpty = ({ section }) => {
   //The section will determine the number of TileSpaces needed in each row
   // Sections 1, 2, 3 will have 8 TilesSpaces
   // Section 4 will have 7 TilesSpaces
-
-  // Add "spaces to props"
+  // Add "TileSpaces" amount to props?
 
   const tileSpaceList = []
 
