@@ -1,7 +1,7 @@
 import TileRow from "../tileRow/TileRow";
 import PropTypes from 'prop-types';
 import styles from './TileTray.module.css';
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import { useEffect } from "react";
 
 const TileTray = ( {availableTiles} ) => {

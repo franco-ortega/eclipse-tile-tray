@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 import Tile from '../tile/Tile';
 import TileSpace from '../tileSpace/TileSpace';
 import styles from './TileRow.module.css';
