@@ -15,8 +15,8 @@ const App = () => {
   
   return (
     <>
-      <header><h1>Eclipse Tile Tray</h1></header>
-      <TileTray />
+      <header><h1>Eclipse Tech Tile Tray</h1></header>
+      {/* <TileTray /> */}
       <TileTray availableTiles={data} />
     </>
   );
