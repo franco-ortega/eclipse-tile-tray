@@ -131,37 +131,37 @@
   "black": [
     4,
     {
-      "slot": null,
+      "slot": 99,
       "cost": { "min": 5, "max": 5},
       "title": "Conifold Field"
     },
     {
-      "slot": null,
+      "slot": 99,
       "cost": { "min": 5, "max": 5},
       "title": "Neutron Absorber"
     },
     {
-      "slot": null,
+      "slot": 99,
       "cost": { "min": 5, "max": 5},
       "title": "Antimatter Splitter"
     },
     {
-      "slot": null,
+      "slot": 99,
       "cost": { "min": 6, "max": 7},
       "title": "Cloaking Device"
     },
     {
-      "slot": null,
+      "slot": 99,
       "cost": { "min": 7, "max": 9},
       "title": "Transition Drive"
     },
     {
-      "slot": null,
+      "slot": 99,
       "cost": { "min": 7, "max": 9},
       "title": "Warp Portal"
     },
     {
-      "slot": null,
+      "slot": 99,
       "cost": { "min": 11, "max": 17},
       "title": "Metasynthesis"
     }

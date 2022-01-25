@@ -13,7 +13,7 @@ const Tile = ({ slot, cost, title }) => {
 };
 
 Tile.propTypes = {
-  slot: PropTypes.number.isRequired,
+  slot: PropTypes.number,
   cost: PropTypes.shape({
     min: PropTypes.number.isRequired,
     max: PropTypes.number.isRequired
