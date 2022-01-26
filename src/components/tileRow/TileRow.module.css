@@ -3,6 +3,10 @@
   flex-direction: row;
   justify-content: space-evenly;
 
-  border: 0.25rem solid darkgray;
-  /* list-style: none; */
+  border: 0.5rem solid darkgray;
+  padding: 0.25rem;
+}
+
+.TileRow + .TileRow {
+  border-top: 0.25rem;
 }

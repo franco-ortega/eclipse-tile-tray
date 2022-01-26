@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styles from './TileTray.module.css';
 
 const TileTray = ({ availableTiles }) => {
-  console.log({ availableTiles })
   const tileRowList = [];
   
   for (const property in availableTiles) {
@@ -18,19 +17,31 @@ const TileTray = ({ availableTiles }) => {
     );
   }
 
+  // const emptyTray = [];
+
+  // for(let i = 0; i < 4; i++) {
+  //   emptyTray.push(
+  //     <TileRow
+  //       key={i}
+  //       row={i + 1}
+  //     />
+  //   );
+  // }
+
   if(!availableTiles) return <div>Loading...</div>
 
-  const testing = false;
   return(
     <>
-    {testing
-    ? 
-    <div className={styles.TileTray}>Testing...</div>
-    :
-    <section className={styles.TileTray}>
-      {tileRowList}
-    </section>
-    }
+      {availableTiles
+      &&
+        <section className={styles.TileTray}>
+          {tileRowList}
+        </section>
+      // :
+      //   <main className={styles.TileTray}>
+      //     {emptyTray}
+      //   </main>
+      }
     </>
   );
 };
