@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import TileSpace from '../tileSpace/TileSpace';
 import styles from './TileRow.module.css';
 
-const TileRow = ({ section, availableTiles, color }) => {
+const TileRow = ({ row, availableTiles, color }) => {
   //The section will determine the number of TileSpaces needed in each row
   // Sections 1, 2, 3 will have 8 TilesSpaces
   // Section 4 will have 7 TilesSpaces
@@ -19,7 +19,7 @@ const TileRow = ({ section, availableTiles, color }) => {
   const tileSpaceListNew = [];
   console.log({ tileSpaceListNew });
 
-  if(section === 4) {
+  if(row === 4) {
     for(let i = 1; i <= 7; i++) {
       tileSpaceListNew.push(
         <TileSpace
@@ -62,7 +62,7 @@ const TileRow = ({ section, availableTiles, color }) => {
 };
 
 TileRow.propTypes = {
-  section: PropTypes.number.isRequired,
+  row: PropTypes.number.isRequired,
   availableTiles: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.shape({})

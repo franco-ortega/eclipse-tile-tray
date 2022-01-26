@@ -17,8 +17,6 @@
         "cost": { "min": 4, "max": 6},
         "title": "Pink 6"
       },
-      
-      
       {
         "slot": 12,
         "cost": { "min": 6, "max": 12},
@@ -83,11 +81,6 @@
         "title": "Tan 4"
       },
       {
-        "slot": 6,
-        "cost": { "min": 4, "max": 6},
-        "title": "Tan 6"
-      },
-      {
         "slot": 8,
         "cost": { "min": 5, "max": 8},
         "title": "Tan 8"
@@ -97,7 +90,6 @@
         "cost": { "min": 6, "max": 10},
         "title": "Tan 10"
       },
-      
       {
         "slot": 16,
         "cost": { "min": 8, "max": 16},
@@ -137,7 +129,7 @@
       {
         "slot": 7,
         "cost": { "min": 11, "max": 17},
-        "title": "Metasynthesis"
+        "title": "Meta-synthesis"
       }
     ]
   }
