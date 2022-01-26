@@ -3,6 +3,8 @@ import TileSpace from '../tileSpace/TileSpace';
 import styles from './TileRow.module.css';
 
 const TileRow = ({ row, availableTiles, color }) => {
+  const regularTileSpaces = 8;
+  const alienTileSpaces = 7;
   //The section will determine the number of TileSpaces needed in each row
   // Sections 1, 2, 3 will have 8 TilesSpaces
   // Section 4 will have 7 TilesSpaces
@@ -20,7 +22,7 @@ const TileRow = ({ row, availableTiles, color }) => {
   console.log({ tileSpaceListNew });
 
   if(row === 4) {
-    for(let i = 1; i <= 7; i++) {
+    for(let i = 1; i <= alienTileSpaces; i++) {
       tileSpaceListNew.push(
         <TileSpace
           key={i}
@@ -31,7 +33,7 @@ const TileRow = ({ row, availableTiles, color }) => {
       );
     }
   } else {
-    for(let i = 1; i <= 8; i++) {
+    for(let i = 1; i <= regularTileSpaces; i++) {
 
       let currentTile;
 
@@ -40,6 +42,7 @@ const TileRow = ({ row, availableTiles, color }) => {
 
         if((i * 2) === currentData?.slot) {
           currentTile = currentData
+          break;
         }
       }
 
