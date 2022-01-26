@@ -16,10 +16,7 @@ const TileRow = ({ row, availableTiles, color }) => {
   // // Or it will receive no info
   // // Each TileSpace will display its Tile or an empty slot
 
-  // console.log({ color })
-
   const tileSpaceListNew = [];
-  console.log({ tileSpaceListNew });
 
   if(row === 4) {
     for(let i = 1; i <= alienTileSpaces; i++) {
@@ -34,7 +31,6 @@ const TileRow = ({ row, availableTiles, color }) => {
     }
   } else {
     for(let i = 1; i <= regularTileSpaces; i++) {
-
       let currentTile;
 
       for(let j = 0; j <= 7; j++) {

@@ -3,8 +3,8 @@ import Tile from '../tile/Tile';
 import styles from './TileSpace.module.css';
 
 const TileSpace = ({ slot, tile, color }) => {
-  // TileSpace will return a tile space if no tile is present
-  // Else it will return a TileSpace with the appropriate Tile in it
+  // TileSpace will return a tile space with the appropriate Tile
+  // Else it will return a TileSpace with the slot number
 
   return (
     <>
