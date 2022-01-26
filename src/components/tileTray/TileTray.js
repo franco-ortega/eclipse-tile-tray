@@ -11,7 +11,7 @@ const TileTray = ({ availableTiles }) => {
     tileRowList.push(
       <TileRow
       key={currentRow.row}
-      section={currentRow.row}
+      row={currentRow.row}
       availableTiles={currentRow.tiles}
       color={property}
     />
@@ -33,37 +33,6 @@ const TileTray = ({ availableTiles }) => {
     }
     </>
   );
-
-
-  
-
-  // return (
-  //   <div className={styles.TileTray}>
-  //   {pink.length === 0
-  //   ?
-  //     <div>Loading...</div>
-  //   :
-  //     <main className={styles.TileTray}>
-  //       <section>
-  //       <TileRow section={1} availableTiles={availableTiles} />
-  //     </section>
-  //     <section>
-  //       <TileRow section={2} availableTiles={availableTiles}  />
-  //     </section>
-  //     <section>
-  //       <TileRow section={3} availableTiles={availableTiles}  />
-  //     </section>
-  //     <section>
-  //       <TileRow section={4} availableTiles={availableTiles}  />
-  //     </section>
-  //     </main>
-  //   }
-  //   </div>
-  // )
-
-
-
-
 };
 
 TileTray.propTypes = {
@@ -74,6 +43,5 @@ TileTray.propTypes = {
     black: PropTypes.shape({}),
   }),
 };
-
 
 export default TileTray;

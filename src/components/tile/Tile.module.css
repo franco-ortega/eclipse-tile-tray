@@ -3,6 +3,8 @@
 
   width: 5rem;
   aspect-ratio: 1/1;
+  align-self: center;
 
   color: aliceblue;
+  font-size: 0.55em;
 }

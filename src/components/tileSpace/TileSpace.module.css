@@ -1,6 +1,6 @@
 .TileSpace {
   border: 0.1rem solid darkslategray;
-  width: 5rem;
+  width: 6rem;
   aspect-ratio: 1/1;
 
   display: flex;

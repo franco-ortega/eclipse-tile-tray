@@ -3,11 +3,12 @@ import styles from './Tile.module.css';
 
 const Tile = ({ slot, cost, title, color }) => {
   console.log(`This tile goes in slot: ${slot}`);
+  console.log({ color })
   return (
     <button className={styles.Tile} style={{backgroundColor: `${color}`}}>
     <p>{title}</p>
     <p>Cost: {cost.max} / {cost.min}</p>
-    <p>Slot: {slot}</p>
+    {/* <p>Slot: {slot}</p> */}
     </button>
   );
 };

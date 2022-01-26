@@ -3,25 +3,30 @@ import Tile from '../tile/Tile';
 import styles from './TileSpace.module.css';
 
 const TileSpace = ({ slot, tile, color }) => {
-  // console.log('SLOT: ', slot);
   // TileSpace will return a tile space if no tile is present
   // Else it will return a TileSpace with the appropriate Tile in it
 
-  // if(tile) return {tile}
-  // console.log({ tile });
   return (
-    <div className={styles.TileSpace}>
+    <>
       {tile
       ?
-      <Tile
-        slot={tile.slot}
-        cost={tile.cost}
-        title={tile.title}
-        color={color}
-      />
+        <div
+          className={styles.TileSpace}
+          style={{ justifyContent: 'center' }}
+          >
+          <Tile
+            slot={tile.slot}
+            cost={tile.cost}
+            title={tile.title}
+            color={color}
+          />
+        </div>
       :
-      slot ? slot : null}
-    </div>
+        <div className={styles.TileSpace}>
+          {slot ? slot : null}
+        </div> 
+      }
+    </>
   );
 };
 
