@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import TileSpace from '../tileSpace/TileSpace';
 import styles from './TileRow.module.css';
 
-const TileRow = ({ row, availableTiles, color }) => {
+const TileRow = ({ row, totalTiles, color }) => {
   const regularTileSpaces = 8;
   const alienTileSpaces = 7;
   //The section will determine the number of TileSpaces needed in each row
@@ -10,7 +10,7 @@ const TileRow = ({ row, availableTiles, color }) => {
   // Section 4 will have 7 TilesSpaces
   // Add "number of TileSpaces" to props (maybe?)
 
-  // If there are availableTiles (which would be one row of tiles at this point)
+  // If there are totalTiles (which would be one row of tiles at this point)
   // Then create a list of TileSpaces
   // // Each TileSpace will receive Tile info for its corresponding tile
   // // Or it will receive no info
@@ -24,7 +24,7 @@ const TileRow = ({ row, availableTiles, color }) => {
         <TileSpace
           key={i}
           slot={0}
-          tile={availableTiles[i - 1]}
+          tile={totalTiles[i - 1]}
           color={color}
         />
       );
@@ -34,7 +34,7 @@ const TileRow = ({ row, availableTiles, color }) => {
       let currentTile;
 
       for(let j = 0; j <= 7; j++) {
-        const currentData = availableTiles[j];
+        const currentData = totalTiles[j];
 
         if((i * 2) === currentData?.slot) {
           currentTile = currentData
@@ -62,7 +62,7 @@ const TileRow = ({ row, availableTiles, color }) => {
 
 TileRow.propTypes = {
   row: PropTypes.number.isRequired,
-  availableTiles: PropTypes.oneOfType([
+  totalTiles: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.shape({})
   ]),
