@@ -12,35 +12,19 @@ const TileTray = ({ availableTiles }) => {
       key={currentRow.row}
       row={currentRow.row}
       availableTiles={currentRow.tiles}
-      color={property}
+      color={currentRow.color}
     />
     );
   }
-
-  // const emptyTray = [];
-
-  // for(let i = 0; i < 4; i++) {
-  //   emptyTray.push(
-  //     <TileRow
-  //       key={i}
-  //       row={i + 1}
-  //     />
-  //   );
-  // }
 
   if(!availableTiles) return <div>Loading...</div>
 
   return(
     <>
-      {availableTiles
-      &&
+      {availableTiles &&
         <section className={styles.TileTray}>
           {tileRowList}
         </section>
-      // :
-      //   <main className={styles.TileTray}>
-      //     {emptyTray}
-      //   </main>
       }
     </>
   );
