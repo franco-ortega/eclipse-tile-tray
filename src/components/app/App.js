@@ -9,16 +9,15 @@ import { useEffect, useState } from "react";
 const App = () => {
   const [currentTiles, setCurrentTiles] = useState({});
 
-  const placeholderData = {
-    'pink': { 'row': 1, 'tiles': []},
-    'green': { 'row': 2, 'tiles': []},
-    'tan': { 'row': 3, 'tiles': []},
-    'black': { 'row': 4, 'tiles': []}
+  const currentTray = JSON.parse(JSON.stringify(tilesObjectData));
+
+  for (const tileSection in currentTray) {
+    currentTray[tileSection].tiles = []
   }
 
   useEffect(() => {
-    setCurrentTiles(placeholderData);
-  }, [])
+    setCurrentTiles(currentTray);
+  }, []);
 
   return (
     <>
