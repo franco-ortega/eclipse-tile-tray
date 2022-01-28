@@ -23,12 +23,12 @@ const App = () => {
     <>
       <header><h1>Eclipse Tech Tile Tray</h1></header>
       <TileTray totalTiles={currentTiles} />
-      {/* <TileTrayEmpty /> */}
       <TileTray
         totalTiles={tilesObjectData}
         setCurrentTiles={setCurrentTiles}
-      />
+        />
       <TileTray totalTiles={tilesObjectHalfData} />
+        {/* <TileTrayEmpty /> */}
     </>
   );
 };

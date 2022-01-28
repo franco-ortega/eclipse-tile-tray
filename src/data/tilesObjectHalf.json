@@ -1,6 +1,8 @@
 {
-  "hotpink": {
+  "pink": {
     "row": 1,
+    "color": "hotpink",
+    "selected": 0,
     "tiles": [
       {
       "slot": 2,
@@ -34,8 +36,10 @@
       }
     ]
   },
-  "darkgreen": {
+  "green": {
     "row": 2,
+    "color": "darkgreen",
+    "selected": 0,
     "tiles": [
       {
       "slot": 2,
@@ -73,6 +77,8 @@
   },
   "tan": {
     "row": 3,
+    "color": "tan",
+    "selected": 0,
     "tiles": [
       
       {
@@ -99,6 +105,8 @@
   },
   "black": {
     "row": 4,
+    "color": "black",
+    "selected": 0,
     "tiles": [
       {
         "slot": null,
