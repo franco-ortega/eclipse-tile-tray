@@ -31,12 +31,20 @@ const TileTray = ({ currentTiles }) => {
   );
 };
 
+// const rowObject = {
+//   row: PropTypes.number.isRequired,
+//   slotsPerRow: PropTypes.number.isRequired,
+//   color: PropTypes.string.isRequired,
+//   tiles: PropTypes.array.isRequired
+// };
+// console.log(rowObject);
+
 TileTray.propTypes = {
   currentTiles: PropTypes.shape({
-    pink: PropTypes.shape({}).isRequired,
-    green: PropTypes.shape({}).isRequired,
-    tan: PropTypes.shape({}).isRequired,
-    black: PropTypes.shape({}).isRequired
+    // pink: PropTypes.shape({}).isRequired,
+    // green: PropTypes.shape({}).isRequired,
+    // tan: PropTypes.shape({}).isRequired,
+    // black: PropTypes.shape({}).isRequired
   }).isRequired,
 };
 
