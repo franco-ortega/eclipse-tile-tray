@@ -2,26 +2,26 @@ import TileRow from "../tileRow/TileRow";
 import PropTypes from 'prop-types';
 import styles from './TileTray.module.css';
 
-const TileTray = ({ totalTiles }) => {
+const TileTray = ({ currentTiles }) => {
   const tileRowList = [];
   
-  for (const tileGroup in totalTiles) {
-    const currentRow = totalTiles[tileGroup]
+  for (const tileGroup in currentTiles) {
+    const currentRow = currentTiles[tileGroup]
     tileRowList.push(
       <TileRow
       key={currentRow.row}
       row={currentRow.row}
       color={currentRow.color}
-      totalTiles={currentRow.tiles}
+      currentTiles={currentRow.tiles}
     />
     );
   }
 
-  if(!totalTiles) return <div>Loading...</div>
+  if(!currentTiles) return <div>Loading...</div>
 
   return(
     <>
-      {totalTiles &&
+      {currentTiles &&
         <section className={styles.TileTray}>
           {tileRowList}
         </section>
@@ -31,7 +31,7 @@ const TileTray = ({ totalTiles }) => {
 };
 
 TileTray.propTypes = {
-  totalTiles: PropTypes.shape({
+  currentTiles: PropTypes.shape({
     pink: PropTypes.shape({}),
     green: PropTypes.shape({}),
     tan: PropTypes.shape({}),
