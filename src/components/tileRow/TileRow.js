@@ -32,11 +32,12 @@ const TileRow = ({ row, totalTiles, color }) => {
   } else {
     for(let i = 1; i <= regularTileSpaces; i++) {
       let currentTile;
+      const currentSlot = i * 2;
 
       for(let j = 0; j <= 7; j++) {
         const currentData = totalTiles[j];
 
-        if((i * 2) === currentData?.slot) {
+        if((currentSlot) === currentData?.slotPosition) {
           currentTile = currentData
           break;
         }
