@@ -1,138 +1,161 @@
 {
   "pink": {
     "row": 1,
+    "slotsPerRow": 8,
     "color": "hotpink",
-    "selected": 0,
     "tiles": [
       {
-      "slot": 2,
+      "slotPosition": 2,
       "cost": { "min": 2, "max": 2},
-      "title": "Pink 2"
+      "title": "Pink 2",
+      "selected": 0
       },
       {
-        "slot": 4,
-        "cost": { "min": 3, "max": 4},
-        "title": "Pink 4"
-      },
-      {
-        "slot": 6,
+        "slotPosition": 6,
         "cost": { "min": 4, "max": 6},
-        "title": "Pink 6"
+        "title": "Pink 6",
+        "selected": 0
       },
       {
-        "slot": 12,
-        "cost": { "min": 6, "max": 12},
-        "title": "Pink 12"
+        "slotPosition": 8,
+        "cost": { "min": 5, "max": 8},
+        "title": "Pink 8",
+        "selected": 0
       },
       {
-        "slot": 14,
+        "slotPosition": 10,
+        "cost": { "min": 6, "max": 10},
+        "title": "Pink 10",
+        "selected": 0
+      },
+      {
+        "slotPosition": 14,
         "cost": { "min": 7, "max": 14},
-        "title": "Pink 14"
+        "title": "Pink 14",
+        "selected": 0
       },
       {
-        "slot": 16,
+        "slotPosition": 16,
         "cost": { "min": 8, "max": 16},
-        "title": "Pink 16"
+        "title": "Pink 16",
+        "selected": 0
       }
     ]
   },
   "green": {
     "row": 2,
+    "slotsPerRow": 8,
     "color": "darkgreen",
-    "selected": 0,
     "tiles": [
       {
-      "slot": 2,
-      "cost": { "min": 2, "max": 2},
-      "title": "Green 2"
-      },
-      {
-        "slot": 4,
+        "slotPosition": 4,
         "cost": { "min": 3, "max": 4},
-        "title": "Green 4"
+        "title": "Green 4",
+        "selected": 0
       },
       {
-        "slot": 6,
+        "slotPosition": 6,
         "cost": { "min": 4, "max": 6},
-        "title": "Green 6"
+        "title": "Green 6",
+        "selected": 0
       },
-      
       {
-        "slot": 8,
-        "cost": { "min": 5, "max": 8},
-        "title": "Green 8"
-      },
-      
-      {
-        "slot": 12,
+        "slotPosition": 12,
         "cost": { "min": 6, "max": 12},
-        "title": "Green 12"
+        "title": "Green 12",
+        "selected": 0
       },
       {
-        "slot": 14,
+        "slotPosition": 14,
         "cost": { "min": 7, "max": 14},
-        "title": "Green 14"
+        "title": "Green 14",
+        "selected": 0
+      },
+      {
+        "slotPosition": 16,
+        "cost": { "min": 8, "max": 16},
+        "title": "Green 16",
+        "selected": 0
       }
     ]
   },
   "tan": {
     "row": 3,
+    "slotsPerRow": 8,
     "color": "tan",
-    "selected": 0,
     "tiles": [
-      
       {
-        "slot": 4,
+      "slotPosition": 2,
+      "cost": { "min": 2, "max": 2},
+      "title": "Tan 2",
+      "selected": 0
+      },
+      {
+        "slotPosition": 4,
         "cost": { "min": 3, "max": 4},
-        "title": "Tan 4"
+        "title": "Tan 4",
+        "selected": 0
       },
       {
-        "slot": 8,
+        "slotPosition": 6,
+        "cost": { "min": 4, "max": 6},
+        "title": "Tan 6",
+        "selected": 0
+      },
+      {
+        "slotPosition": 8,
         "cost": { "min": 5, "max": 8},
-        "title": "Tan 8"
+        "title": "Tan 8",
+        "selected": 0
       },
       {
-        "slot": 10,
+        "slotPosition": 10,
         "cost": { "min": 6, "max": 10},
-        "title": "Tan 10"
+        "title": "Tan 10",
+        "selected": 0
       },
       {
-        "slot": 16,
+        "slotPosition": 16,
         "cost": { "min": 8, "max": 16},
-        "title": "Tan 16"
+        "title": "Tan 16",
+        "selected": 0
       }
     ]
   },
   "black": {
     "row": 4,
+    "slotsPerRow": 7,
     "color": "black",
-    "selected": 0,
     "tiles": [
       {
-        "slot": null,
-        "cost": { "min": 6, "max": 7},
-        "title": "Cloaking Device"
+        "slotPosition": null,
+        "cost": { "min": 5, "max": 5},
+        "title": "Conifold Field",
+        "selected": 0
       },
-      
       {
-        "slot": null,
+        "slotPosition": null,
         "cost": { "min": 7, "max": 9},
-        "title": "Warp Portal"
+        "title": "Warp Portal",
+        "selected": 0
       },
       {
-        "slot": null,
+        "slotPosition": null,
         "cost": { "min": 5, "max": 5},
-        "title": "Conifold Field"
-      },      
+        "title": "Neutron Absorber",
+        "selected": 0
+      },
       {
-        "slot": null,
+        "slotPosition": null,
+        "cost": { "min": 6, "max": 7},
+        "title": "Cloaking Device",
+        "selected": 0
+      },
+      {
+        "slotPosition": null,
         "cost": { "min": 11, "max": 17},
-        "title": "Meta-synthesis"
-      },
-      {
-        "slot": null,
-        "cost": { "min": 5, "max": 5},
-        "title": "Neutron Absorber"
+        "title": "Meta-synthesis",
+        "selected": 0
       }
     ]
   }
