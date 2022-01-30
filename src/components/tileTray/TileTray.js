@@ -5,12 +5,13 @@ import styles from './TileTray.module.css';
 const TileTray = ({ currentTiles }) => {
   const tileRowList = [];
   
-  for (const tileGroup in currentTiles) {
-    const currentRow = currentTiles[tileGroup]
+  for (const rowColor in currentTiles) {
+    const currentRow = currentTiles[rowColor]
     tileRowList.push(
       <TileRow
       key={currentRow.row}
       row={currentRow.row}
+      slotsPerRow={currentRow.slotsPerRow}
       color={currentRow.color}
       currentTiles={currentRow.tiles}
     />
@@ -32,11 +33,11 @@ const TileTray = ({ currentTiles }) => {
 
 TileTray.propTypes = {
   currentTiles: PropTypes.shape({
-    pink: PropTypes.shape({}),
-    green: PropTypes.shape({}),
-    tan: PropTypes.shape({}),
-    black: PropTypes.shape({}),
-  }),
+    pink: PropTypes.shape({}).isRequired,
+    green: PropTypes.shape({}).isRequired,
+    tan: PropTypes.shape({}).isRequired,
+    black: PropTypes.shape({}).isRequired
+  }).isRequired,
 };
 
 export default TileTray;
