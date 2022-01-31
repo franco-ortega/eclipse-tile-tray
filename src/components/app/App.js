@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useTrayContext } from "../../state/TrayContext";
 
 const App = () => {
-  const { currentTray, setCurrentTray } = useTrayContext();
+  const { currentTray, setCurrentTray, updateTray } = useTrayContext();
   console.log('APP: ', currentTray);
 
   const startingTray = JSON.parse(JSON.stringify(tilesObjectData));
@@ -15,18 +15,25 @@ const App = () => {
     startingTray[rowColor].tiles = []
   }
 
+  
   useEffect(() => {
-    setCurrentTray(startingTray);
-  }, []);
+      if(
+        currentTray?.pink?.tiles.length > 0 ||
+        currentTray?.green?.tiles.length > 0 ||
+        currentTray?.tan?.tiles.length > 0 ||
+        currentTray?.black?.tiles.length > 0
+        ) {
+        setCurrentTray(currentTray);
+      } else {
+        setCurrentTray(startingTray);
+      }
+  }, [updateTray]);
 
   return (
     <>
       <header><h1>Eclipse Tech Tile Tray</h1></header>
       <TileTray currentTiles={currentTray} />
-      <TileTray
-        currentTiles={tilesObjectData}
-        setCurrentTray={setCurrentTray}
-        />
+      <TileTray currentTiles={tilesObjectData} />
       <TileTray currentTiles={tilesObjectHalfData} />
         {/* <TileTrayEmpty /> */}
     </>

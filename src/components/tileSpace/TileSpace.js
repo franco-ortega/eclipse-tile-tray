@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import Tile from '../tile/Tile';
 import styles from './TileSpace.module.css';
 
-const TileSpace = ({ color, slot, tile }) => {
+const TileSpace = ({ rowName, color, slot, tile }) => {
   // TileSpace will return a tile space with the appropriate Tile
   // Else it will return a TileSpace with the slot number
+  console.log('SLOT: ', slot)
 
   return (
     <>
@@ -15,9 +16,10 @@ const TileSpace = ({ color, slot, tile }) => {
           style={{ justifyContent: 'center' }}
           >
           <Tile
+          rowName={rowName}
             color={color}
             cost={tile.cost}
-            slot={tile.slot}
+            slot={slot}
             title={tile.title}
           />
         </div>
@@ -31,6 +33,8 @@ const TileSpace = ({ color, slot, tile }) => {
 };
 
 TileSpace.propTypes = {
+  rowName: PropTypes.string.isRequired,
+  color: PropTypes.string,
   slot: PropTypes.number,
   tile: PropTypes.shape({
     slot: PropTypes.number,
@@ -39,8 +43,7 @@ TileSpace.propTypes = {
       max: PropTypes.number.isRequired
     }).isRequired,
     title: PropTypes.string.isRequired
-  }),
-  color: PropTypes.string
+  })
 };
 
 export default TileSpace;

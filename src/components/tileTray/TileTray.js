@@ -5,11 +5,12 @@ import styles from './TileTray.module.css';
 const TileTray = ({ currentTiles }) => {
   const tileRowList = [];
   
-  for (const rowColor in currentTiles) {
-    const currentRow = currentTiles[rowColor]
+  for (const rowName in currentTiles) {
+    const currentRow = currentTiles[rowName]
     tileRowList.push(
       <TileRow
       key={currentRow.row}
+      rowName={rowName}
       row={currentRow.row}
       slotsPerRow={currentRow.slotsPerRow}
       color={currentRow.color}

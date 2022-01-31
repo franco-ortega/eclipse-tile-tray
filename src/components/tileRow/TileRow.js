@@ -3,6 +3,7 @@ import TileSpace from '../tileSpace/TileSpace';
 import styles from './TileRow.module.css';
 
 const TileRow = ({
+  rowName,
   row,
   slotsPerRow,
   color,
@@ -27,6 +28,7 @@ const TileRow = ({
       tileSpaceListNew.push(
         <TileSpace
           key={`${row}${i}`}
+          rowName={rowName}
           color={color}
           slot={currentSlot}
           tile={tileToInsert}
@@ -39,6 +41,7 @@ const TileRow = ({
       tileSpaceListNew.push(
         <TileSpace
           key={`${row}${i}`}
+          rowName={rowName}
           color={color}
           slot={null}
           tile={currentTiles[i]}
@@ -55,6 +58,7 @@ const TileRow = ({
 };
 
 TileRow.propTypes = {
+  rowName: PropTypes.string.isRequired,
   row: PropTypes.number.isRequired,
   slotsPerRow: PropTypes.number.isRequired,
   color: PropTypes.string.isRequired,
