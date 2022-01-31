@@ -1,33 +1,37 @@
 import TileTray from "../tileTray/TileTray";
-// import TileTrayEmpty from "../tileTray/TileTrayEmpty";
-// import totalTiles from '../../data/tiles.json';
-// import tilesArrayData from '../../data/tilesArray.json';
 import tilesObjectData from '../../data/tilesObject.json';
-import tilesObjectHalfData from '../../data/tilesObjectHalf.json';
-import { useEffect, useState } from "react";
+// import tilesObjectHalfData from '../../data/tilesObjectHalf.json';
+import { useEffect } from "react";
+import { useTrayContext } from "../../state/TrayContext";
 
 const App = () => {
-  const [currentTiles, setCurrentTiles] = useState({});
+  const { currentTray, setCurrentTray, updateTray } = useTrayContext();
+  const startingTray = JSON.parse(JSON.stringify(tilesObjectData));
 
-  const currentTray = JSON.parse(JSON.stringify(tilesObjectData));
-
-  for (const tileSection in currentTray) {
-    currentTray[tileSection].tiles = []
+  // This will empty the tiles from the starting tray
+  for (const rowColor in startingTray) {
+    startingTray[rowColor].tiles = []
   }
-
+  
   useEffect(() => {
-    setCurrentTiles(currentTray);
-  }, []);
+      if(
+        currentTray?.pink?.tiles.length > 0 ||
+        currentTray?.green?.tiles.length > 0 ||
+        currentTray?.tan?.tiles.length > 0 ||
+        currentTray?.black?.tiles.length > 0
+        ) {
+        setCurrentTray(currentTray);
+      } else {
+        setCurrentTray(startingTray);
+      }
+  }, [updateTray]);
 
   return (
     <>
       <header><h1>Eclipse Tech Tile Tray</h1></header>
-      <TileTray totalTiles={currentTiles} />
-      <TileTray
-        totalTiles={tilesObjectData}
-        setCurrentTiles={setCurrentTiles}
-        />
-      <TileTray totalTiles={tilesObjectHalfData} />
+      <TileTray currentTiles={currentTray} />
+      <TileTray currentTiles={tilesObjectData} />
+      {/* <TileTray currentTiles={tilesObjectHalfData} /> */}
         {/* <TileTrayEmpty /> */}
     </>
   );

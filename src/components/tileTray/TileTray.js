@@ -2,26 +2,29 @@ import TileRow from "../tileRow/TileRow";
 import PropTypes from 'prop-types';
 import styles from './TileTray.module.css';
 
-const TileTray = ({ totalTiles }) => {
+const TileTray = ({ currentTiles }) => {
   const tileRowList = [];
+  // console.log('CURRENT TILES: ', currentTiles);
   
-  for (const tileGroup in totalTiles) {
-    const currentRow = totalTiles[tileGroup]
+  for (const rowName in currentTiles) {
+    const currentRow = currentTiles[rowName]
     tileRowList.push(
       <TileRow
       key={currentRow.row}
+      rowName={rowName}
       row={currentRow.row}
+      slotsPerRow={currentRow.slotsPerRow}
       color={currentRow.color}
-      totalTiles={currentRow.tiles}
+      currentTiles={currentRow.tiles}
     />
     );
   }
 
-  if(!totalTiles) return <div>Loading...</div>
+  if(!currentTiles) return <div>Loading...</div>
 
   return(
     <>
-      {totalTiles &&
+      {currentTiles &&
         <section className={styles.TileTray}>
           {tileRowList}
         </section>
@@ -30,13 +33,21 @@ const TileTray = ({ totalTiles }) => {
   );
 };
 
+// const rowObject = {
+//   row: PropTypes.number.isRequired,
+//   slotsPerRow: PropTypes.number.isRequired,
+//   color: PropTypes.string.isRequired,
+//   tiles: PropTypes.array.isRequired
+// };
+// console.log(rowObject);
+
 TileTray.propTypes = {
-  totalTiles: PropTypes.shape({
-    pink: PropTypes.shape({}),
-    green: PropTypes.shape({}),
-    tan: PropTypes.shape({}),
-    black: PropTypes.shape({}),
-  }),
+  currentTiles: PropTypes.shape({
+    // pink: PropTypes.shape({}).isRequired,
+    // green: PropTypes.shape({}).isRequired,
+    // tan: PropTypes.shape({}).isRequired,
+    // black: PropTypes.shape({}).isRequired
+  }).isRequired,
 };
 
 export default TileTray;
