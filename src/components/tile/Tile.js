@@ -3,9 +3,7 @@ import { useTrayContext } from '../../state/TrayContext';
 import styles from './Tile.module.css';
 
 const Tile = ({ rowName, color, cost, slot, title }) => {
-  const { currentTray, setCurrentTray, changeTray } = useTrayContext();
-  console.log('TILE: ', currentTray);
-  console.log('FUNC: ', setCurrentTray);
+  const { setCurrentTray, changeTray } = useTrayContext();
 
   let currentCount = 1;
 
@@ -19,10 +17,14 @@ const Tile = ({ rowName, color, cost, slot, title }) => {
       selected: currentCount++
     }
 
-    console.log('CURRET TRAY ROW', currentTray[rowName].tiles);
+    setCurrentTray(prevState => {
+      console.log('Setting the new state');
+      prevState[rowName].tiles = [...prevState[rowName].tiles, tileSelected]
+      return prevState;
+    });
 
-    currentTray[rowName].tiles.push(tileSelected);
     changeTray();
+
 
     console.log(tileSelected);
   }
@@ -46,7 +48,7 @@ Tile.propTypes = {
     min: PropTypes.number.isRequired,
     max: PropTypes.number.isRequired
   }).isRequired,
-  slot: PropTypes.number.isRequired,
+  slot: PropTypes.number,
   title: PropTypes.string.isRequired,
 };
 

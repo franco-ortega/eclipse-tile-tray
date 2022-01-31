@@ -5,8 +5,6 @@ import styles from './TileSpace.module.css';
 const TileSpace = ({ rowName, color, slot, tile }) => {
   // TileSpace will return a tile space with the appropriate Tile
   // Else it will return a TileSpace with the slot number
-  console.log('SLOT: ', slot)
-
   return (
     <>
       {tile
