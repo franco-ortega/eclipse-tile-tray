@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import Tile from '../tile/Tile';
 import styles from './TileSpace.module.css';
 
-const TileSpace = ({ slot, tile, color }) => {
+const TileSpace = ({ color, slot, tile }) => {
   // TileSpace will return a tile space with the appropriate Tile
   // Else it will return a TileSpace with the slot number
 
@@ -15,10 +15,10 @@ const TileSpace = ({ slot, tile, color }) => {
           style={{ justifyContent: 'center' }}
           >
           <Tile
-            slot={tile.slot}
-            cost={tile.cost}
-            title={tile.title}
             color={color}
+            cost={tile.cost}
+            slot={tile.slot}
+            title={tile.title}
           />
         </div>
       :

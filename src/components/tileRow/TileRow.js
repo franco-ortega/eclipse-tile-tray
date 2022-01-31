@@ -27,9 +27,9 @@ const TileRow = ({
       tileSpaceListNew.push(
         <TileSpace
           key={`${row}${i}`}
+          color={color}
           slot={currentSlot}
           tile={tileToInsert}
-          color={color}
         />
       );
     }
@@ -39,9 +39,9 @@ const TileRow = ({
       tileSpaceListNew.push(
         <TileSpace
           key={`${row}${i}`}
+          color={color}
           slot={null}
           tile={currentTiles[i]}
-          color={color}
         />
       );
     }
