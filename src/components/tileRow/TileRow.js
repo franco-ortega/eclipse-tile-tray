@@ -8,49 +8,39 @@ const TileRow = ({
   color,
   currentTiles
 }) => {
-  //The section will determine the number of TileSpaces needed in each row
-  // Sections 1, 2, 3 will have 8 TilesSpaces
-  // Section 4 will have 7 TilesSpaces
-  // Add "number of TileSpaces" to props (maybe?)
-
-  // If there are currentTiles (which would be one row of tiles at this point)
-  // Then create a list of TileSpaces
-  // // Each TileSpace will receive Tile info for its corresponding tile
-  // // Or it will receive no info
-  // // Each TileSpace will display its Tile or an empty slot
-
   const tileSpaceListNew = [];
 
-  if(row === 4) {
-    for(let i = 1; i <= slotsPerRow; i++) {
-      tileSpaceListNew.push(
-        <TileSpace
-          key={i}
-          slot={0}
-          tile={currentTiles[i - 1]}
-          color={color}
-        />
-      );
-    }
-  } else {
-    for(let i = 1; i <= slotsPerRow; i++) {
-      let currentTile;
-      const currentSlot = i * 2;
+  if(row < 4) {
+    // The tile must go into the slot with the corresponding position
+    for(let i = 0; i < slotsPerRow; i++) {
+      const currentSlot = (i + 1) * 2;
+      let tileToInsert;
 
-      for(let j = 0; j <= 7; j++) {
-        const currentData = currentTiles[j];
-
-        if((currentSlot) === currentData?.slotPosition) {
-          currentTile = currentData
+      for(let j = 0; j < slotsPerRow; j++) {
+        const currentTile = currentTiles[j];
+        if(currentSlot === currentTile?.slotPosition) {
+          tileToInsert = currentTile
           break;
         }
       }
 
       tileSpaceListNew.push(
         <TileSpace
-          key={i}
-          slot={i * 2}
-          tile={currentTile}
+          key={`${row}${i}`}
+          slot={currentSlot}
+          tile={tileToInsert}
+          color={color}
+        />
+      );
+    }
+  } else {
+    // The last row does NOT display a slot number; nor does it care about the slot where a tile is inserted; it simply places the tile in the first (left-most) slot available
+    for(let i = 0; i < slotsPerRow; i++) {
+      tileSpaceListNew.push(
+        <TileSpace
+          key={`${row}${i}`}
+          slot={null}
+          tile={currentTiles[i]}
           color={color}
         />
       );
@@ -67,11 +57,23 @@ const TileRow = ({
 TileRow.propTypes = {
   row: PropTypes.number.isRequired,
   slotsPerRow: PropTypes.number.isRequired,
+  color: PropTypes.string.isRequired,
   currentTiles: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.shape({})
-  ]),
-  color: PropTypes.string
+  ])
 };
 
 export default TileRow;
+
+// REFACTOR THOUGHTS:
+
+      // The current slot will see if there are any tiles left (check the length of currentTiles?)
+
+      // // If there is a tile, it will check to see if the slot value matches the slot position
+      // // If the slot position is null, it will enter the tile in the next slot
+      // // Otherwise...
+      // // // If there is a match, the tile to insert will be this current tile
+      // // // If no match, it will check the next tile, and repeat this process until the last tile
+
+      // // If there are no tiles, it will stop searching
