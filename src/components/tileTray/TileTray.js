@@ -4,6 +4,7 @@ import styles from './TileTray.module.css';
 
 const TileTray = ({ currentTiles }) => {
   const tileRowList = [];
+  // console.log('CURRENT TILES: ', currentTiles);
   
   for (const rowName in currentTiles) {
     const currentRow = currentTiles[rowName]

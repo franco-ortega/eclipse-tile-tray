@@ -2,31 +2,41 @@ import PropTypes from 'prop-types';
 import { useTrayContext } from '../../state/TrayContext';
 import styles from './Tile.module.css';
 
-const Tile = ({ rowName, color, cost, slot, title }) => {
+const Tile = ({ rowName, color, slot, cost, selected, title }) => {
   const { setCurrentTray, changeTray } = useTrayContext();
 
-  let currentCount = 1;
-
   const onTileClick = () => {
-    console.log('Tile clicked!!!:', slot);
+    let currentCount = selected;
+    currentCount++;
 
     const tileSelected = {
       slotPosition: slot,
       cost,
       title,
-      selected: currentCount++
+      selected: currentCount
     }
 
     setCurrentTray(prevState => {
-      console.log('Setting the new state');
+      let existingTile = false;
+
+      prevState[rowName].tiles.forEach(tile => {
+        if(tile.title === title) existingTile = true;
+      })
+
+      if(existingTile) {
+        console.log('Increase the count of SELECTED');
+        prevState[rowName].tiles.forEach(tile => {
+          if(tile.title === title) tile.selected++
+        })
+    } else {
+      console.log('Add SELECTED');
       prevState[rowName].tiles = [...prevState[rowName].tiles, tileSelected]
+    }
+
       return prevState;
     });
 
     changeTray();
-
-
-    console.log(tileSelected);
   }
 
   return (
@@ -44,11 +54,12 @@ const Tile = ({ rowName, color, cost, slot, title }) => {
 Tile.propTypes = {
   rowName: PropTypes.string,
   color: PropTypes.string,
+  slot: PropTypes.number,
   cost: PropTypes.shape({
     min: PropTypes.number.isRequired,
     max: PropTypes.number.isRequired
   }).isRequired,
-  slot: PropTypes.number,
+  selected: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
 };
 
