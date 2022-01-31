@@ -3,7 +3,7 @@ import Count from '../count/Count';
 import PropTypes from 'prop-types';
 import styles from './Tile.module.css';
 
-const Tile = ({ rowName, color, slot, cost, selected, title, active }) => {
+const Tile = ({ rowName, color, slot, cost, selected, title, active, slotPosition }) => {
   const { setCurrentTray, changeTray } = useTrayContext();
 
   const onTileClick = () => {
@@ -26,7 +26,7 @@ const Tile = ({ rowName, color, slot, cost, selected, title, active }) => {
       setCurrentTray(prevState => {
         prevState[rowName].tiles.forEach(tile => {
           if(tile.title === title) existingTile = true;
-          if(tile.title === title) {
+          if(tile.title === title && slotPosition) {
             tile.selected++;
           }
         })
@@ -96,7 +96,8 @@ Tile.propTypes = {
   }).isRequired,
   selected: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  active: PropTypes.bool
+  active: PropTypes.bool,
+  slotPosition: PropTypes.number
 };
 
 export default Tile;
