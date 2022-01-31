@@ -1,54 +1,37 @@
-import PropTypes from 'prop-types';
 import { useTrayContext } from '../../state/TrayContext';
 import Count from '../count/Count';
+import PropTypes from 'prop-types';
 import styles from './Tile.module.css';
 
 const Tile = ({ rowName, color, slot, cost, selected, title, active }) => {
   const { setCurrentTray, changeTray } = useTrayContext();
 
   const onTileClick = () => {
-
     if(active) {
-      console.log('Tile clicked');
       setCurrentTray(prevState => {
-        let existingTile = false;
-
         prevState[rowName].tiles.forEach((tile, i) => {
-          if(tile.title === title) existingTile = true;
-          if(tile.selected === 1) {
-            prevState[rowName].tiles.splice(i, 1)
-          }
-          return prevState;
-        });
-
-        if(existingTile) {
-          console.log('EXISTING TILE')
-          prevState[rowName].tiles.forEach(tile => {
-            if(tile.title === title) {
-              console.log('Subtract TILE')
+          if(tile.title === title) {
+            if(tile.selected === 1) {
+              prevState[rowName].tiles.splice(i, 1)
+            } else {
               tile.selected--;
             }
-          });
-        }
+          }
+        });
 
         return prevState;
       });
     } else {
-
+      let existingTile = false;
       setCurrentTray(prevState => {
-        let existingTile = false;
-  
         prevState[rowName].tiles.forEach(tile => {
           if(tile.title === title) existingTile = true;
+          if(tile.title === title) {
+            tile.selected++;
+          }
         })
   
-        if(existingTile) {
-          prevState[rowName].tiles.forEach(tile => {
-            if(tile.title === title) {
-              tile.selected++;
-            }
-          })
-        } else {
+        if(!existingTile) {
           prevState[rowName].tiles = [...prevState[rowName].tiles, {
             slotPosition: slot,
             cost,
@@ -57,7 +40,7 @@ const Tile = ({ rowName, color, slot, cost, selected, title, active }) => {
             active: true
           }];
         }
-  
+
         prevState[rowName].tiles.sort((a, b) => a.slotPosition - b.slotPosition);
   
         return prevState;
@@ -68,28 +51,38 @@ const Tile = ({ rowName, color, slot, cost, selected, title, active }) => {
   };
 
   return (
-    <>
-    {active && selected > 0 ? <button
+    <button
       className={styles.Tile}
       style={{backgroundColor: `${color}`}}
       onClick={onTileClick}
+      // disabled={true}
     >
-    <p>{title}</p>
-    <p>Cost: {cost.max} / {cost.min}</p>
-    <p>{selected > 0 && slot && <Count selected={selected} />}</p>
+      <p>{title}</p>
+      <p>Cost: {cost.max} / {cost.min}</p>
+      <p>{selected > 0 && slot && <Count selected={selected} />}</p>
     </button>
-    : !active ? <button
-      className={styles.Tile}
-      style={{backgroundColor: `${color}`}}
-      onClick={onTileClick}
-    >
-    <p>{title}</p>
-    <p>Cost: {cost.max} / {cost.min}</p>
-    <p>{selected > 0 && slot && <Count selected={selected} />}</p>
-    </button>
-    : null
-    }
-    </>
+    // <>
+    // {active ? <button
+    //   className={styles.Tile}
+    //   style={{backgroundColor: `${color}`}}
+    //   onClick={onTileClick}
+    // >
+    // <p>{title}</p>
+    // <p>Cost: {cost.max} / {cost.min}</p>
+    // <p>{selected > 0 && slot && <Count selected={selected} />}</p>
+    // </button>
+    // : <button
+    //   className={styles.Tile}
+    //   style={{backgroundColor: `${color}`}}
+    //   onClick={onTileClick}
+    //   // disabled={true}
+    // >
+    // <p>{title}</p>
+    // <p>Cost: {cost.max} / {cost.min}</p>
+    // <p>{selected > 0 && slot && <Count selected={selected} />}</p>
+    // </button>
+    // }
+    // </>
   );
 };
 
