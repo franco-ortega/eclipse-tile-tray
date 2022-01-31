@@ -1,20 +1,13 @@
 import PropTypes from 'prop-types';
 import { useTrayContext } from '../../state/TrayContext';
+import Count from '../count/Count';
 import styles from './Tile.module.css';
 
 const Tile = ({ rowName, color, slot, cost, selected, title }) => {
   const { setCurrentTray, changeTray } = useTrayContext();
 
   const onTileClick = () => {
-    let currentCount = selected;
-    currentCount++;
-
-    const tileSelected = {
-      slotPosition: slot,
-      cost,
-      title,
-      selected: currentCount
-    }
+    console.log('Tile clicked');
 
     setCurrentTray(prevState => {
       let existingTile = false;
@@ -24,20 +17,27 @@ const Tile = ({ rowName, color, slot, cost, selected, title }) => {
       })
 
       if(existingTile) {
-        console.log('Increase the count of SELECTED');
         prevState[rowName].tiles.forEach(tile => {
-          if(tile.title === title) tile.selected++
+          if(tile.title === title) {
+            tile.selected++;
+          }
         })
-    } else {
-      console.log('Add SELECTED');
-      prevState[rowName].tiles = [...prevState[rowName].tiles, tileSelected]
-    }
+      } else {
+        prevState[rowName].tiles = [...prevState[rowName].tiles, {
+          slotPosition: slot,
+          cost,
+          title,
+          selected: 1
+        }];
+      }
+      
+
+      prevState[rowName].tiles.sort((a, b) => a.slotPosition - b.slotPosition);
 
       return prevState;
     });
-
     changeTray();
-  }
+  };
 
   return (
     <button
@@ -47,6 +47,7 @@ const Tile = ({ rowName, color, slot, cost, selected, title }) => {
     >
     <p>{title}</p>
     <p>Cost: {cost.max} / {cost.min}</p>
+    <p>{selected > 0 && slot && <Count selected={selected} />}</p>
     </button>
   );
 };

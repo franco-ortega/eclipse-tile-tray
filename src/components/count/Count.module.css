@@ -1,0 +1,10 @@
+.Count {
+  background: gray;
+  border: solid 0.1rem lightgray;
+  border-radius: 100px;
+  padding: 0.2rem;
+  /* font-weight: bold; */
+  position: absolute;
+  top: -20%;
+  right: 0;
+}
