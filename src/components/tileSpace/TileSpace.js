@@ -21,6 +21,7 @@ const TileSpace = ({ rowName, color, slot, tile }) => {
             cost={tile.cost}
             selected={tile.selected}
             title={tile.title}
+            active={tile.active}
           />
         </div>
       :
@@ -43,7 +44,8 @@ TileSpace.propTypes = {
     }).isRequired,
     selected: PropTypes.number.isRequired,
     slot: PropTypes.number,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    active: PropTypes.bool
   })
 };
 
