@@ -5,7 +5,8 @@ import { useEffect } from "react";
 import { useTrayContext } from "../../state/TrayContext";
 
 const App = () => {
-  const { currentTray, setCurrentTray } = useTrayContext()
+  const { currentTray, setCurrentTray } = useTrayContext();
+  console.log('APP: ', currentTray);
 
   const startingTray = JSON.parse(JSON.stringify(tilesObjectData));
 
