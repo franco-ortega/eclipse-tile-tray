@@ -7,28 +7,28 @@
       {
       "slotPosition": 2,
       "cost": { "min": 2, "max": 2},
-      "title": "Pink 2",
+      "title": "Neutron Bombs",
       "selected": 0,
       "limit": 2
       },
       {
         "slotPosition": 4,
         "cost": { "min": 3, "max": 4},
-        "title": "Pink 4",
+        "title": "Starbase",
         "selected": 0,
         "limit": 2
       },
       {
         "slotPosition": 6,
         "cost": { "min": 4, "max": 6},
-        "title": "Pink 6",
+        "title": "Plasma Cannon",
         "selected": 0,
         "limit": 2
       },
       {
         "slotPosition": 8,
         "cost": { "min": 5, "max": 8},
-        "title": "Pink 8",
+        "title": "Phase Shield",
         "selected": 0,
         "limit": 2
       },
@@ -49,14 +49,14 @@
       {
         "slotPosition": 14,
         "cost": { "min": 7, "max": 14},
-        "title": "Pink 14",
+        "title": "Gluon Computer",
         "selected": 0,
         "limit": 2
       },
       {
         "slotPosition": 16,
         "cost": { "min": 8, "max": 16},
-        "title": "Pink 16",
+        "title": "Plamsa Missile",
         "selected": 0,
         "limit": 2
       }
@@ -70,35 +70,35 @@
       {
       "slotPosition": 2,
       "cost": { "min": 2, "max": 2},
-      "title": "Green 2",
+      "title": "Gauss Shield",
       "selected": 0,
       "limit": 2
       },
       {
         "slotPosition": 4,
         "cost": { "min": 3, "max": 4},
-        "title": "Green 4",
+        "title": "Fusion Square",
         "selected": 0,
         "limit": 2
       },
       {
         "slotPosition": 6,
         "cost": { "min": 4, "max": 6},
-        "title": "Green 6",
+        "title": "Improved Hull",
         "selected": 0,
         "limit": 2
       },
       {
         "slotPosition": 8,
         "cost": { "min": 5, "max": 8},
-        "title": "Green 8",
+        "title": "Positron Computer",
         "selected": 0,
         "limit": 2
       },
       {
         "slotPosition": 10,
         "cost": { "min": 6, "max": 10},
-        "title": "Green 10",
+        "title": "Advanced Economy",
         "selected": 0,
         "limit": 2
       },
@@ -112,14 +112,14 @@
       {
         "slotPosition": 14,
         "cost": { "min": 7, "max": 14},
-        "title": "Green 14",
+        "title": "Antimatter Cannon",
         "selected": 0,
         "limit": 2
       },
       {
         "slotPosition": 16,
         "cost": { "min": 8, "max": 16},
-        "title": "Green 16",
+        "title": "Quantum Grid",
         "selected": 0,
         "limit": 2
       }
@@ -133,14 +133,14 @@
       {
       "slotPosition": 2,
       "cost": { "min": 2, "max": 2},
-      "title": "Tan 2",
+      "title": "Nanorobots",
       "selected": 0,
       "limit": 2
       },
       {
         "slotPosition": 4,
         "cost": { "min": 3, "max": 4},
-        "title": "Tan 4",
+        "title": "Fusion Drive",
         "selected": 0,
         "limit": 2
       },
@@ -154,35 +154,35 @@
       {
         "slotPosition": 8,
         "cost": { "min": 5, "max": 8},
-        "title": "Tan 8",
+        "title": "Advanced Robotics",
         "selected": 0,
         "limit": 2
       },
       {
         "slotPosition": 10,
         "cost": { "min": 6, "max": 10},
-        "title": "Tan 10",
+        "title": "Advanced Labs",
         "selected": 0,
         "limit": 2
       },
       {
         "slotPosition": 12,
         "cost": { "min": 6, "max": 12},
-        "title": "Tan 12",
+        "title": "Monolith",
         "selected": 0,
         "limit": 2
       },
       {
         "slotPosition": 14,
         "cost": { "min": 7, "max": 14},
-        "title": "Tan 14",
+        "title": "Wormhole Generator",
         "selected": 0,
         "limit": 2
       },
       {
         "slotPosition": 16,
         "cost": { "min": 8, "max": 16},
-        "title": "Tan 16",
+        "title": "Artifact Key",
         "selected": 0,
         "limit": 2
       }
