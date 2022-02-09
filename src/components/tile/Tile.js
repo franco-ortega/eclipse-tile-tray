@@ -12,7 +12,7 @@ const Tile = ({
   selected,
   title,
   active,
-  // slotPosition,
+  slotPosition,
   limit }) => {
   const { setCurrentTray, changeTray } = useTrayContext();
   const [ isDisabled, setIsDisabled ] = useState(false);
@@ -38,9 +38,12 @@ const Tile = ({
         prevState[rowName].tiles.forEach(tile => {
           if(tile.title === title) existingTile = true;
           if(tile.title === title && tile.selected < limit) {
-            setIsDisabled(false);
+            // setIsDisabled(false);
             tile.selected++;
-            if(tile.selected === limit) setIsDisabled(true);
+            if(tile.selected >= limit) {
+              console.log('going to disable', tile.selected, limit);
+              setIsDisabled(true)
+            }
           }
         });
   
@@ -54,6 +57,8 @@ const Tile = ({
             limit
           }
           console.log(newTile);
+          if(!slotPosition) setIsDisabled(true);
+
           prevState[rowName].tiles = [...prevState[rowName].tiles, newTile];
         }
 
@@ -73,8 +78,18 @@ const Tile = ({
       onClick={onTileClick}
       disabled={isDisabled}
     >
-      <p>{title}</p>
-      <p>Cost: {cost.max} / {cost.min}</p>
+      <p className={styles.Title}>{title}</p>
+      <p 
+        // className={styles.MaxCost}
+        className={`${styles.FlexRow} ${styles.MaxCost}`}
+      >
+        {cost.max}
+        <span
+          // className={styles.MinCost}
+          className={`${styles.FlexRow} ${styles.MinCost}`}
+          >{cost.min}</span>
+      </p>
+      
       <p>{selected > 0 && <Count selected={selected} />}</p>
     </button>
   );

@@ -12,3 +12,7 @@ body {
 
   padding: 1rem;
 }
+
+*:disabled {
+  opacity: 50%;
+}
