@@ -8,49 +8,57 @@
       "slotPosition": 2,
       "cost": { "min": 2, "max": 2},
       "title": "Pink 2",
-      "selected": 0
+      "selected": 0,
+      "limit": 2
       },
       {
         "slotPosition": 4,
         "cost": { "min": 3, "max": 4},
         "title": "Pink 4",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       },
       {
         "slotPosition": 6,
         "cost": { "min": 4, "max": 6},
         "title": "Pink 6",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       },
       {
         "slotPosition": 8,
         "cost": { "min": 5, "max": 8},
         "title": "Pink 8",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       },
       {
         "slotPosition": 10,
         "cost": { "min": 6, "max": 10},
         "title": "Pink 10",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       },
       {
         "slotPosition": 12,
         "cost": { "min": 6, "max": 12},
         "title": "Pink 12",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       },
       {
         "slotPosition": 14,
         "cost": { "min": 7, "max": 14},
         "title": "Pink 14",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       },
       {
         "slotPosition": 16,
         "cost": { "min": 8, "max": 16},
         "title": "Pink 16",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       }
     ]
   },
@@ -63,49 +71,57 @@
       "slotPosition": 2,
       "cost": { "min": 2, "max": 2},
       "title": "Green 2",
-      "selected": 0
+      "selected": 0,
+      "limit": 2
       },
       {
         "slotPosition": 4,
         "cost": { "min": 3, "max": 4},
         "title": "Green 4",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       },
       {
         "slotPosition": 6,
         "cost": { "min": 4, "max": 6},
         "title": "Green 6",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       },
       {
         "slotPosition": 8,
         "cost": { "min": 5, "max": 8},
         "title": "Green 8",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       },
       {
         "slotPosition": 10,
         "cost": { "min": 6, "max": 10},
         "title": "Green 10",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       },
       {
         "slotPosition": 12,
         "cost": { "min": 6, "max": 12},
         "title": "Green 12",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       },
       {
         "slotPosition": 14,
         "cost": { "min": 7, "max": 14},
         "title": "Green 14",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       },
       {
         "slotPosition": 16,
         "cost": { "min": 8, "max": 16},
         "title": "Green 16",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       }
     ]
   },
@@ -118,49 +134,57 @@
       "slotPosition": 2,
       "cost": { "min": 2, "max": 2},
       "title": "Tan 2",
-      "selected": 0
+      "selected": 0,
+      "limit": 2
       },
       {
         "slotPosition": 4,
         "cost": { "min": 3, "max": 4},
         "title": "Tan 4",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       },
       {
         "slotPosition": 6,
         "cost": { "min": 4, "max": 6},
         "title": "Tan 6",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       },
       {
         "slotPosition": 8,
         "cost": { "min": 5, "max": 8},
         "title": "Tan 8",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       },
       {
         "slotPosition": 10,
         "cost": { "min": 6, "max": 10},
         "title": "Tan 10",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       },
       {
         "slotPosition": 12,
         "cost": { "min": 6, "max": 12},
         "title": "Tan 12",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       },
       {
         "slotPosition": 14,
         "cost": { "min": 7, "max": 14},
         "title": "Tan 14",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       },
       {
         "slotPosition": 16,
         "cost": { "min": 8, "max": 16},
         "title": "Tan 16",
-        "selected": 0
+        "selected": 0,
+        "limit": 2
       }
     ]
   },
@@ -173,43 +197,50 @@
         "slotPosition": null,
         "cost": { "min": 5, "max": 5},
         "title": "Conifold Field",
-        "selected": 0
+        "selected": 0,
+        "limit": 1
       },
       {
         "slotPosition": null,
         "cost": { "min": 5, "max": 5},
         "title": "Neutron Absorber",
-        "selected": 0
+        "selected": 0,
+        "limit": 1
       },
       {
         "slotPosition": null,
         "cost": { "min": 5, "max": 5},
         "title": "Antimatter Splitter",
-        "selected": 0
+        "selected": 0,
+        "limit": 1
       },
       {
         "slotPosition": null,
         "cost": { "min": 6, "max": 7},
         "title": "Cloaking Device",
-        "selected": 0
+        "selected": 0,
+        "limit": 1
       },
       {
         "slotPosition": null,
         "cost": { "min": 7, "max": 9},
         "title": "Transition Drive",
-        "selected": 0
+        "selected": 0,
+        "limit": 1
       },
       {
         "slotPosition": null,
         "cost": { "min": 7, "max": 9},
         "title": "Warp Portal",
-        "selected": 0
+        "selected": 0,
+        "limit": 1
       },
       {
         "slotPosition": null,
         "cost": { "min": 11, "max": 17},
         "title": "Meta-synthesis",
-        "selected": 0
+        "selected": 0,
+        "limit": 1
       }
     ]
   }

@@ -1,13 +1,15 @@
 import TileRow from "../tileRow/TileRow";
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import styles from './TileTray.module.css';
+import { useTrayContext } from "../../state/TrayContext";
 
-const TileTray = ({ currentTiles }) => {
+const TileTray = () => {
+  const { allTiles } = useTrayContext();
   const tileRowList = [];
-  // console.log('CURRENT TILES: ', currentTiles);
+  // console.log('CURRENT TILES: ', );
   
-  for (const rowName in currentTiles) {
-    const currentRow = currentTiles[rowName]
+  for (const rowName in allTiles) {
+    const currentRow = allTiles[rowName]
     tileRowList.push(
       <TileRow
       key={currentRow.row}
@@ -20,11 +22,11 @@ const TileTray = ({ currentTiles }) => {
     );
   }
 
-  if(!currentTiles) return <div>Loading...</div>
+  if(!allTiles) return <div>Loading...</div>
 
   return(
     <>
-      {currentTiles &&
+      {allTiles &&
         <section className={styles.TileTray}>
           {tileRowList}
         </section>
@@ -33,14 +35,14 @@ const TileTray = ({ currentTiles }) => {
   );
 };
 
-TileTray.propTypes = {
-  currentTiles: PropTypes.shape({
-    // pink: PropTypes.shape({}).isRequired,
-    // green: PropTypes.shape({}).isRequired,
-    // tan: PropTypes.shape({}).isRequired,
-    // black: PropTypes.shape({}).isRequired
-  }).isRequired,
-};
+// TileTray.propTypes = {
+//   currentTiles: PropTypes.shape({
+//     // pink: PropTypes.shape({}).isRequired,
+//     // green: PropTypes.shape({}).isRequired,
+//     // tan: PropTypes.shape({}).isRequired,
+//     // black: PropTypes.shape({}).isRequired
+//   }).isRequired,
+// };
 
 export default TileTray;
 

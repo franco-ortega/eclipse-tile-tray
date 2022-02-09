@@ -8,6 +8,8 @@ export const TrayProvider = ({ children }) => {
   const [currentTray, setCurrentTray] = useState({});
   const [updateTray, setUpdateTray] = useState(false);
 
+  const [allTiles, setAllTiles] = useState({});
+
   const startingTray = JSON.parse(JSON.stringify(tilesObjectData));
 
   // This will remove the tiles from the starting tray
@@ -25,6 +27,10 @@ export const TrayProvider = ({ children }) => {
     if(currentTray[rowColor].tiles.length > 0) tilesAvailable = true;
   }
 
+  useEffect(() => {
+    setAllTiles(tilesObjectData);
+  }, []);
+
   
   useEffect(() => {
       if(!tilesAvailable) setCurrentTray(startingTray);
@@ -34,6 +40,7 @@ export const TrayProvider = ({ children }) => {
 
   return (
     <TrayContext.Provider value={{
+      allTiles,
       currentTray,
       setCurrentTray,
       changeTray,
@@ -44,6 +51,7 @@ export const TrayProvider = ({ children }) => {
 
 export const useTrayContext = () => {
   const {
+    allTiles,
     currentTray,
     setCurrentTray,
     changeTray,
@@ -51,6 +59,7 @@ export const useTrayContext = () => {
   } = useContext(TrayContext);
 
   return {
+    allTiles,
     currentTray,
     setCurrentTray,
     changeTray,
