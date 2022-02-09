@@ -78,8 +78,18 @@ const Tile = ({
       onClick={onTileClick}
       disabled={isDisabled}
     >
-      <p>{title}</p>
-      <p>Cost: {cost.max} / {cost.min}</p>
+      <p className={styles.Title}>{title}</p>
+      <p 
+        // className={styles.MaxCost}
+        className={`${styles.FlexRow} ${styles.MaxCost}`}
+      >
+        {cost.max}
+        <span
+          // className={styles.MinCost}
+          className={`${styles.FlexRow} ${styles.MinCost}`}
+          >{cost.min}</span>
+      </p>
+      
       <p>{selected > 0 && <Count selected={selected} />}</p>
     </button>
   );
