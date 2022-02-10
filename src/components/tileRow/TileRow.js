@@ -7,7 +7,7 @@ const TileRow = ({
   row,
   slotsPerRow,
   color,
-  currentTiles
+  tiles
 }) => {
   const tileSpaceListNew = [];
 
@@ -18,7 +18,7 @@ const TileRow = ({
       let tileToInsert;
 
       for(let j = 0; j < slotsPerRow; j++) {
-        const currentTile = currentTiles[j];
+        const currentTile = tiles[j];
         if(currentSlot === currentTile?.slotPosition) {
           tileToInsert = currentTile
           break;
@@ -44,7 +44,7 @@ const TileRow = ({
           rowName={rowName}
           color={color}
           slot={null}
-          tile={currentTiles[i]}
+          tile={tiles[i]}
         />
       );
     }
@@ -62,7 +62,7 @@ TileRow.propTypes = {
   row: PropTypes.number.isRequired,
   slotsPerRow: PropTypes.number.isRequired,
   color: PropTypes.string.isRequired,
-  currentTiles: PropTypes.oneOfType([
+  tiles: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.shape({})
   ])
@@ -72,7 +72,7 @@ export default TileRow;
 
 // REFACTOR THOUGHTS:
 
-      // The current slot will see if there are any tiles left (check the length of currentTiles?)
+      // The current slot will see if there are any tiles left (check the length of tiles?)
 
       // // If there is a tile, it will check to see if the slot value matches the slot position
       // // If the slot position is null, it will enter the tile in the next slot

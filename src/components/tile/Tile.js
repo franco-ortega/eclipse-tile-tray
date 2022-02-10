@@ -8,25 +8,25 @@ const Tile = ({
   rowName,
   color,
   slot,
-  cost,
-  selected,
-  title,
-  active,
-  slotPosition,
-  limit }) => {
+  tile
+}) => {
   const { setCurrentTray, changeTray } = useTrayContext();
   const [ isDisabled, setIsDisabled ] = useState(false);
 
-  const onTileClick = async() => {
-    if(active) {
-      await setCurrentTray(prevState => {
-        prevState[rowName].tiles.forEach((tile, i) => {
-          if(tile.title === title) {
-            if(tile.selected === 1) {
-              prevState[rowName].tiles.splice(i, 1)
-            } else {
-              tile.selected--;
-            }
+  // console.log({ tile });
+
+  const onTileClick = () => {
+    if(tile.active) {
+      setCurrentTray(prevState => {
+        prevState[rowName].tiles.forEach((currentTile) => {
+          if(currentTile.title === tile.title) {
+            // if(currentTile.selected === 1 && currentTile.slotPosition === null) {
+            //   console.log('fenjwon')
+            //   prevState[rowName].tiles.splice(i, 1)
+            // } else {
+            //   // currentTile.selected--;
+            // }
+            currentTile.selected--;
           }
         });
 
@@ -34,15 +34,16 @@ const Tile = ({
       });
     } else {
       let existingTile = false;
-      await setCurrentTray(prevState => {
-        prevState[rowName].tiles.forEach(tile => {
-          if(tile.title === title) existingTile = true;
-          if(tile.title === title && tile.selected < limit) {
-            // setIsDisabled(false);
-            tile.selected++;
-            if(tile.selected >= limit) {
-              console.log('going to disable', tile.selected, limit);
-              setIsDisabled(true)
+      setCurrentTray(prevState => {
+        prevState[rowName].tiles.forEach(currentTile => {
+          if(currentTile.title === tile.title) {
+            existingTile = true;
+            if(currentTile.selected < currentTile.limit) {
+              currentTile.selected++;
+              currentTile.total++;
+              if(currentTile.total >= tile.limit) {
+                setIsDisabled(true)
+              }
             }
           }
         });
@@ -50,14 +51,15 @@ const Tile = ({
         if(!existingTile) {
           const newTile = {
             slotPosition: slot,
-            cost,
-            title,
+            cost: tile.cost,
+            title: tile.title,
             selected: 1,
             active: true,
-            limit
-          }
-          console.log(newTile);
-          if(!slotPosition) setIsDisabled(true);
+            limit: tile.limit,
+            total: 1
+          };
+
+          if(!tile.slotPosition) setIsDisabled(true);
 
           prevState[rowName].tiles = [...prevState[rowName].tiles, newTile];
         }
@@ -72,26 +74,26 @@ const Tile = ({
   };
 
   return (
-    <button
-      className={styles.Tile}
-      style={{backgroundColor: `${color}`}}
-      onClick={onTileClick}
-      disabled={isDisabled}
-    >
-      <p className={styles.Title}>{title}</p>
-      <p 
-        // className={styles.MaxCost}
-        className={`${styles.FlexRow} ${styles.MaxCost}`}
-      >
-        {cost.max}
-        <span
-          // className={styles.MinCost}
-          className={`${styles.FlexRow} ${styles.MinCost}`}
-          >{cost.min}</span>
-      </p>
-      
-      <p>{selected > 0 && <Count selected={selected} />}</p>
-    </button>
+    <>
+      {!tile.active || tile.selected
+        ? <button
+            className={styles.Tile}
+            style={{backgroundColor: `${color}`}}
+            onClick={onTileClick}
+            disabled={isDisabled}
+          >
+            <p className={styles.Title}>{tile.title}</p>
+            <p className={`${styles.FlexRow} ${styles.MaxCost}`}>
+              {tile.cost.max}
+              <span className={`${styles.FlexRow} ${styles.MinCost}`}>
+                {tile.cost.min}
+              </span>
+            </p>
+            <p>{tile.selected > 0 && <Count selected={tile.selected} />}</p>
+          </button>
+        : slot
+      }
+    </>
   );
 };
 
@@ -99,15 +101,17 @@ Tile.propTypes = {
   rowName: PropTypes.string,
   color: PropTypes.string,
   slot: PropTypes.number,
-  cost: PropTypes.shape({
-    min: PropTypes.number.isRequired,
-    max: PropTypes.number.isRequired
-  }).isRequired,
-  selected: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  active: PropTypes.bool,
-  slotPosition: PropTypes.number,
-  limit: PropTypes.number
+  tile: PropTypes.shape({
+    slotPosition: PropTypes.number,
+    cost: PropTypes.shape({
+      min: PropTypes.number.isRequired,
+      max: PropTypes.number.isRequired
+    }).isRequired,
+    title: PropTypes.string.isRequired,
+    selected: PropTypes.number.isRequired,
+    limit: PropTypes.number.isRequired,
+    active: PropTypes.bool
+  })
 };
 
 export default Tile;
