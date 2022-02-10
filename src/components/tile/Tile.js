@@ -13,16 +13,20 @@ const Tile = ({
   const { setCurrentTray, changeTray } = useTrayContext();
   const [ isDisabled, setIsDisabled ] = useState(false);
 
-  const onTileClick = async() => {
+  // console.log({ tile });
+
+  const onTileClick = () => {
     if(tile.active) {
-      await setCurrentTray(prevState => {
-        prevState[rowName].tiles.forEach((currentTile, i) => {
+      setCurrentTray(prevState => {
+        prevState[rowName].tiles.forEach((currentTile) => {
           if(currentTile.title === tile.title) {
-            if(currentTile.selected === 1) {
-              prevState[rowName].tiles.splice(i, 1)
-            } else {
-              currentTile.selected--;
-            }
+            // if(currentTile.selected === 1 && currentTile.slotPosition === null) {
+            //   console.log('fenjwon')
+            //   prevState[rowName].tiles.splice(i, 1)
+            // } else {
+            //   // currentTile.selected--;
+            // }
+            currentTile.selected--;
           }
         });
 
@@ -30,15 +34,16 @@ const Tile = ({
       });
     } else {
       let existingTile = false;
-      await setCurrentTray(prevState => {
+      setCurrentTray(prevState => {
         prevState[rowName].tiles.forEach(currentTile => {
-          if(currentTile.title === tile.title) existingTile = true;
-          if(currentTile.title === tile.title && currentTile.selected < tile.limit) {
-            // setIsDisabled(false);
-            currentTile.selected++;
-            if(currentTile.selected >= tile.limit) {
-              console.log('going to disable', currentTile.selected, tile.limit);
-              setIsDisabled(true)
+          if(currentTile.title === tile.title) {
+            existingTile = true;
+            if(currentTile.selected < currentTile.limit) {
+              currentTile.selected++;
+              currentTile.total++;
+              if(currentTile.total >= tile.limit) {
+                setIsDisabled(true)
+              }
             }
           }
         });
@@ -50,9 +55,10 @@ const Tile = ({
             title: tile.title,
             selected: 1,
             active: true,
-            limit: tile.limit
-          }
-          console.log(newTile);
+            limit: tile.limit,
+            total: 1
+          };
+
           if(!tile.slotPosition) setIsDisabled(true);
 
           prevState[rowName].tiles = [...prevState[rowName].tiles, newTile];
@@ -68,26 +74,26 @@ const Tile = ({
   };
 
   return (
-    <button
-      className={styles.Tile}
-      style={{backgroundColor: `${color}`}}
-      onClick={onTileClick}
-      disabled={isDisabled}
-    >
-      <p className={styles.Title}>{tile.title}</p>
-      <p 
-        // className={styles.MaxCost}
-        className={`${styles.FlexRow} ${styles.MaxCost}`}
-      >
-        {tile.cost.max}
-        <span
-          // className={styles.MinCost}
-          className={`${styles.FlexRow} ${styles.MinCost}`}
-          >{tile.cost.min}</span>
-      </p>
-      
-      <p>{tile.selected > 0 && <Count selected={tile.selected} />}</p>
-    </button>
+    <>
+      {!tile.active || tile.selected
+        ? <button
+            className={styles.Tile}
+            style={{backgroundColor: `${color}`}}
+            onClick={onTileClick}
+            disabled={isDisabled}
+          >
+            <p className={styles.Title}>{tile.title}</p>
+            <p className={`${styles.FlexRow} ${styles.MaxCost}`}>
+              {tile.cost.max}
+              <span className={`${styles.FlexRow} ${styles.MinCost}`}>
+                {tile.cost.min}
+              </span>
+            </p>
+            <p>{tile.selected > 0 && <Count selected={tile.selected} />}</p>
+          </button>
+        : slot
+      }
+    </>
   );
 };
 
