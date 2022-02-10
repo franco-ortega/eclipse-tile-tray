@@ -6,19 +6,6 @@ import styles from './TileSpace.module.css';
 const TileSpace = ({ rowName, color, slot, tile }) => {
   // TileSpace will return a tile space with the appropriate Tile
   // Else it will return a TileSpace with the slot number
-  // if(tile) console.log(tile.selected);
-  // let isDisabled= false;
-
-  
-  // useEffect(() => {
-  //   if(tile) {
-  //     console.log('SELECTED', tile.selected);
-  //     console.log('LIMIT', tile?.limit);
-  //     if(tile.selected === tile?.limit) {
-  //       isDisabled = true;
-  //     } 
-  //   }
-  // }, [tile?.selected]);
   
   return (
     <>
@@ -32,13 +19,7 @@ const TileSpace = ({ rowName, color, slot, tile }) => {
             rowName={rowName}
             color={color}
             slot={slot}
-            cost={tile.cost}
-            selected={tile.selected}
-            title={tile.title}
-            active={tile.active}
-            slotPosition={tile.slotPosition}
-            // isDisabled={isDisabled}
-            limit={tile.limit}
+            tile={tile}
           />
         </div>
       :

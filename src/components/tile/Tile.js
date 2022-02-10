@@ -8,24 +8,20 @@ const Tile = ({
   rowName,
   color,
   slot,
-  cost,
-  selected,
-  title,
-  active,
-  slotPosition,
-  limit }) => {
+  tile
+}) => {
   const { setCurrentTray, changeTray } = useTrayContext();
   const [ isDisabled, setIsDisabled ] = useState(false);
 
   const onTileClick = async() => {
-    if(active) {
+    if(tile.active) {
       await setCurrentTray(prevState => {
-        prevState[rowName].tiles.forEach((tile, i) => {
-          if(tile.title === title) {
-            if(tile.selected === 1) {
+        prevState[rowName].tiles.forEach((currentTile, i) => {
+          if(currentTile.title === tile.title) {
+            if(currentTile.selected === 1) {
               prevState[rowName].tiles.splice(i, 1)
             } else {
-              tile.selected--;
+              currentTile.selected--;
             }
           }
         });
@@ -35,13 +31,13 @@ const Tile = ({
     } else {
       let existingTile = false;
       await setCurrentTray(prevState => {
-        prevState[rowName].tiles.forEach(tile => {
-          if(tile.title === title) existingTile = true;
-          if(tile.title === title && tile.selected < limit) {
+        prevState[rowName].tiles.forEach(currentTile => {
+          if(currentTile.title === tile.title) existingTile = true;
+          if(currentTile.title === tile.title && currentTile.selected < tile.limit) {
             // setIsDisabled(false);
-            tile.selected++;
-            if(tile.selected >= limit) {
-              console.log('going to disable', tile.selected, limit);
+            currentTile.selected++;
+            if(currentTile.selected >= tile.limit) {
+              console.log('going to disable', currentTile.selected, tile.limit);
               setIsDisabled(true)
             }
           }
@@ -50,14 +46,14 @@ const Tile = ({
         if(!existingTile) {
           const newTile = {
             slotPosition: slot,
-            cost,
-            title,
+            cost: tile.cost,
+            title: tile.title,
             selected: 1,
             active: true,
-            limit
+            limit: tile.limit
           }
           console.log(newTile);
-          if(!slotPosition) setIsDisabled(true);
+          if(!tile.slotPosition) setIsDisabled(true);
 
           prevState[rowName].tiles = [...prevState[rowName].tiles, newTile];
         }
@@ -78,19 +74,19 @@ const Tile = ({
       onClick={onTileClick}
       disabled={isDisabled}
     >
-      <p className={styles.Title}>{title}</p>
+      <p className={styles.Title}>{tile.title}</p>
       <p 
         // className={styles.MaxCost}
         className={`${styles.FlexRow} ${styles.MaxCost}`}
       >
-        {cost.max}
+        {tile.cost.max}
         <span
           // className={styles.MinCost}
           className={`${styles.FlexRow} ${styles.MinCost}`}
-          >{cost.min}</span>
+          >{tile.cost.min}</span>
       </p>
       
-      <p>{selected > 0 && <Count selected={selected} />}</p>
+      <p>{tile.selected > 0 && <Count selected={tile.selected} />}</p>
     </button>
   );
 };
@@ -99,15 +95,17 @@ Tile.propTypes = {
   rowName: PropTypes.string,
   color: PropTypes.string,
   slot: PropTypes.number,
-  cost: PropTypes.shape({
-    min: PropTypes.number.isRequired,
-    max: PropTypes.number.isRequired
-  }).isRequired,
-  selected: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  active: PropTypes.bool,
-  slotPosition: PropTypes.number,
-  limit: PropTypes.number
+  tile: PropTypes.shape({
+    slotPosition: PropTypes.number,
+    cost: PropTypes.shape({
+      min: PropTypes.number.isRequired,
+      max: PropTypes.number.isRequired
+    }).isRequired,
+    title: PropTypes.string.isRequired,
+    selected: PropTypes.number.isRequired,
+    limit: PropTypes.number.isRequired,
+    active: PropTypes.bool
+  })
 };
 
 export default Tile;

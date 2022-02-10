@@ -17,7 +17,7 @@ const TileTray = () => {
       row={currentRow.row}
       slotsPerRow={currentRow.slotsPerRow}
       color={currentRow.color}
-      currentTiles={currentRow.tiles}
+      tiles={currentRow.tiles}
     />
     );
   }

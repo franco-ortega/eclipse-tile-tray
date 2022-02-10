@@ -4,9 +4,7 @@ import styles from './TileTray.module.css';
 import { useTrayContext } from "../../state/TrayContext";
 
 const TileTray = () => {
-  const {
-    // allTiles,
-    currentTray } = useTrayContext();
+  const { currentTray } = useTrayContext();
   const tileRowList = [];
   // console.log('CURRENT TILES: ', currentTray);
   
@@ -19,7 +17,7 @@ const TileTray = () => {
       row={currentRow.row}
       slotsPerRow={currentRow.slotsPerRow}
       color={currentRow.color}
-      currentTiles={currentRow.tiles}
+      tiles={currentRow.tiles}
     />
     );
   }
