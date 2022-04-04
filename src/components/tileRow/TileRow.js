@@ -76,8 +76,8 @@ const TileRow = ({
       }
     } else {
       console.log('length === 0');
-      let i = 0;
-      do {
+
+      for(let i = 0; i < slotsPerRow; i++) {
         tileSpaceListNew.push(
           <TileSpace
             key={`${row}${i}`}
@@ -87,8 +87,7 @@ const TileRow = ({
             tile={tiles[i]}
           />
         );
-        i++;
-      } while ( i < slotsPerRow);
+      }
     }
 
   }
