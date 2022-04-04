@@ -10,6 +10,8 @@ const TileRow = ({
   tiles
 }) => {
   const tileSpaceListNew = [];
+  const tileSpaceListNewTwo = [];
+  const tileSpaceListNewThree = [];
 
   if(row < 4) {
     // The tile must go into the slot with the corresponding position
@@ -37,23 +39,72 @@ const TileRow = ({
     }
   } else {
     // The last row does NOT display a slot number; nor does it care about the slot where a tile is inserted; it simply places the tile in the first (left-most) slot available
-    for(let i = 0; i < slotsPerRow; i++) {
-      tileSpaceListNew.push(
-        <TileSpace
-          key={`${row}${i}`}
-          rowName={rowName}
-          color={color}
-          slot={null}
-          tile={tiles[i]}
-        />
-      );
+    if(tiles.length > 0) {
+      console.log('length > 0')
+      for(let i = 0; i < tiles.length; i++) {
+        if(i < 7) {
+          tileSpaceListNew.push(
+            <TileSpace
+              key={`${row}${i}`}
+              rowName={rowName}
+              color={color}
+              slot={null}
+              tile={tiles[i]}
+            />
+          );
+        } else if(i >= 7 && i < 14) {
+          tileSpaceListNewTwo.push(
+            <TileSpace
+              key={`${row}${i}`}
+              rowName={rowName}
+              color={color}
+              slot={null}
+              tile={tiles[i]}
+            />
+          );
+        } else if (i >= 14 && i < 21) {
+          tileSpaceListNewThree.push(
+            <TileSpace
+              key={`${row}${i}`}
+              rowName={rowName}
+              color={color}
+              slot={null}
+              tile={tiles[i]}
+            />
+          );
+        }
+      }
+    } else {
+      console.log('length === 0');
+      let i = 0;
+      do {
+        tileSpaceListNew.push(
+          <TileSpace
+            key={`${row}${i}`}
+            rowName={rowName}
+            color={color}
+            slot={null}
+            tile={tiles[i]}
+          />
+        );
+        i++;
+      } while ( i < slotsPerRow);
     }
+
   }
 
   return (
-    <ul className={styles.TileRow}>
-      {tileSpaceListNew}
-    </ul>
+    <>
+      <ul className={styles.TileRow}>
+        {tileSpaceListNew}
+      </ul>
+      {tileSpaceListNewTwo.length > 0 && <ul className={styles.TileRow}>
+        {tileSpaceListNewTwo}
+      </ul>}
+      {tileSpaceListNewThree.length > 0 && <ul className={styles.TileRow}>
+        {tileSpaceListNewThree}
+      </ul>}
+    </>
   );
 };
 

@@ -13,8 +13,6 @@ const Tile = ({
   const { setCurrentTray, changeTray } = useTrayContext();
   const [ isDisabled, setIsDisabled ] = useState(false);
 
-  // console.log({ tile });
-
   const onTileClick = () => {
     if(tile.active) {
       setCurrentTray(prevState => {
