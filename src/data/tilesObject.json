@@ -241,6 +241,104 @@
         "title": "Meta-synthesis",
         "selected": 0,
         "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 11, "max": 17},
+        "title": "Test ONE",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 11, "max": 17},
+        "title": "Test TWO",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 11, "max": 17},
+        "title": "Test THREE",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 11, "max": 17},
+        "title": "Test FOUR",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 11, "max": 17},
+        "title": "Test FIVE",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 11, "max": 17},
+        "title": "Test SIX",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 11, "max": 17},
+        "title": "Test SEVEN",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 11, "max": 17},
+        "title": "Test ONE B",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 11, "max": 17},
+        "title": "Test TWO B",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 11, "max": 17},
+        "title": "Test THREE B",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 11, "max": 17},
+        "title": "Test FOUR B",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 11, "max": 17},
+        "title": "Test FIVE B",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 11, "max": 17},
+        "title": "Test SIX B",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 11, "max": 17},
+        "title": "Test SEVEN B",
+        "selected": 0,
+        "limit": 1
       }
     ]
   }
