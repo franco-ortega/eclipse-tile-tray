@@ -325,20 +325,6 @@
         "title": "Test FIVE B",
         "selected": 0,
         "limit": 1
-      },
-      {
-        "slotPosition": null,
-        "cost": { "min": 11, "max": 17},
-        "title": "Test SIX B",
-        "selected": 0,
-        "limit": 1
-      },
-      {
-        "slotPosition": null,
-        "cost": { "min": 11, "max": 17},
-        "title": "Test SEVEN B",
-        "selected": 0,
-        "limit": 1
       }
     ]
   }
