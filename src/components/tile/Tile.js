@@ -10,8 +10,26 @@ const Tile = ({
   slot,
   tile
 }) => {
-  const { setPlayerTiles, changeTray } = useTrayContext();
+  const { setPlayerTiles, changeTray, playerTiles } = useTrayContext();
   const [ isDisabled, setIsDisabled ] = useState(false);
+
+  // console.log(playerTiles);
+
+  const currentPlayerTiles = playerTiles[rowType].tiles;
+  console.log(currentPlayerTiles);
+
+  const searchPlayerTiles = (tilesToSearch, tileToFind) => {
+    for(let i = 0; i < tilesToSearch.length; i++) {
+      const currentTileSearched = tilesToSearch[i];
+      if(currentTileSearched.title === tileToFind.title) {
+        console.log('found!');
+        return tileToFind.selected;
+      }
+    }
+  };
+
+  const currentSelected = searchPlayerTiles(currentPlayerTiles, tile) || 0;
+  console.log({ currentSelected });
 
   const onTileClick = () => {
     if(tile.active) {
@@ -78,7 +96,17 @@ const Tile = ({
                 {tile.cost.min}
               </span>
             </p>
-            <p>{tile.selected > 0 && <Count selected={tile.selected} />}</p>
+            <p>
+              {
+                tile.selected > 0
+                &&
+                <Count selected={tile.selected} />
+                ||
+                // currentSelected > 0
+                // &&
+                <Count selected={tile.limit - currentSelected} />
+              }
+            </p>
           </button>
         : slot
       }
