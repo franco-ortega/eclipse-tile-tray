@@ -10,12 +10,12 @@ const Tile = ({
   slot,
   tile
 }) => {
-  const { setCurrentTray, changeTray } = useTrayContext();
+  const { setPlayerTiles, changeTray } = useTrayContext();
   const [ isDisabled, setIsDisabled ] = useState(false);
 
   const onTileClick = () => {
     if(tile.active) {
-      setCurrentTray(prevState => {
+      setPlayerTiles(prevState => {
         prevState[rowColor].tiles.forEach((currentTile) => {
           if(currentTile.title === tile.title) currentTile.selected--;
         });
@@ -23,7 +23,7 @@ const Tile = ({
       });
     } else {
       let existingTile = false;
-      setCurrentTray(prevState => {
+      setPlayerTiles(prevState => {
         prevState[rowColor].tiles.forEach(currentTile => {
           if(currentTile.title === tile.title) {
             existingTile = true;

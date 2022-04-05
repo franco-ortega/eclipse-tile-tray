@@ -188,7 +188,7 @@
       }
     ]
   },
-  "black": {
+  "alien": {
     "row": 4,
     "slotsPerRow": 7,
     "color": "black",

@@ -9,10 +9,10 @@ const TileRow = ({
   color,
   tiles
 }) => {
-  const tileSpacesInThisRow = [];
-  const tileSpacesInBlackRowOne = [];
-  const tileSpacesInBlackRowTwo = [];
-  const tileSpacesInBlackRowThree = [];
+  const standardTileSpacesRow = [];
+  const alienTileSpacesRowOne = [];
+  const alienTileSpacesRowTwo = [];
+  const alienTileSpacesRowThree = [];
 
   if(slotsPerRow === 8) {
     // The tile must go into the slot with the corresponding position
@@ -28,7 +28,7 @@ const TileRow = ({
         }
       }
 
-      tileSpacesInThisRow.push(
+      standardTileSpacesRow.push(
         <TileSpace
           key={`${row}${i}`}
           rowColor={rowColor}
@@ -41,7 +41,7 @@ const TileRow = ({
   } else {
     // The last row does NOT display a slot number; nor does it care about the slot where a tile is inserted; it simply places the tile in the first (left-most) slot available
     for(let i = 0; i < slotsPerRow; i++) {
-      tileSpacesInBlackRowOne.push(
+      alienTileSpacesRowOne.push(
         <TileSpace
           key={`${row}${i}`}
           rowColor={rowColor}
@@ -53,7 +53,7 @@ const TileRow = ({
     }
 
     for(let i = 0; i < slotsPerRow; i++) {
-      tileSpacesInBlackRowTwo.push(
+      alienTileSpacesRowTwo.push(
         <TileSpace
           key={`${row}${i}`}
           rowColor={rowColor}
@@ -65,7 +65,7 @@ const TileRow = ({
     }
 
     for(let i = 0; i < slotsPerRow; i++) {
-      tileSpacesInBlackRowThree.push(
+      alienTileSpacesRowThree.push(
         <TileSpace
           key={`${row}${i}`}
           rowColor={rowColor}
@@ -79,24 +79,24 @@ const TileRow = ({
 
   return (
     <>
-      {tileSpacesInThisRow.length > 0 &&
+      {standardTileSpacesRow.length > 0 &&
         <ul className={styles.TileRow}>
-          {tileSpacesInThisRow}
+          {standardTileSpacesRow}
         </ul>
       }
-      {tileSpacesInBlackRowOne.length > 0 &&
+      {alienTileSpacesRowOne.length > 0 &&
         <ul className={styles.TileRow}>
-          {tileSpacesInBlackRowOne}
+          {alienTileSpacesRowOne}
         </ul>
       }
-      {tileSpacesInBlackRowTwo.length > 0 && tiles.length > 7 &&
+      {alienTileSpacesRowTwo.length > 0 && tiles.length > 7 &&
         <ul className={styles.TileRow}>
-          {tileSpacesInBlackRowTwo}
+          {alienTileSpacesRowTwo}
         </ul>
       }
-      {tileSpacesInBlackRowThree.length > 0 && tiles.length > 14 &&
+      {alienTileSpacesRowThree.length > 0 && tiles.length > 14 &&
         <ul className={styles.TileRow}>
-          {tileSpacesInBlackRowThree}
+          {alienTileSpacesRowThree}
         </ul>
       }
     </>

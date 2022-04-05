@@ -2,12 +2,12 @@ import TileRow from "../tileRow/TileRow";
 import styles from './TileTray.module.css';
 import { useTrayContext } from "../../state/TrayContext";
 
-const CurrentTray = () => {
-  const { currentTray } = useTrayContext();
+const playerTiles = () => {
+  const { playerTiles } = useTrayContext();
   const tileRowList = [];
   
-  for (const rowColor in currentTray) {
-    const currentRow = currentTray[rowColor]
+  for (const rowColor in playerTiles) {
+    const currentRow = playerTiles[rowColor]
     tileRowList.push(
       <TileRow
       key={currentRow.row}
@@ -20,11 +20,11 @@ const CurrentTray = () => {
     );
   }
 
-  if(!currentTray) return <div>Loading...</div>
+  if(!playerTiles) return <div>Loading...</div>
 
   return(
     <>
-      {currentTray &&
+      {playerTiles &&
         <section className={styles.TileTray}>
           {tileRowList}
         </section>
@@ -33,4 +33,4 @@ const CurrentTray = () => {
   );
 };
 
-export default CurrentTray;
+export default playerTiles;
