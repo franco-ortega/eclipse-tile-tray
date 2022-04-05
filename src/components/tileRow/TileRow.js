@@ -60,7 +60,7 @@ const TileRow = ({
           rowColor={rowColor}
           color={color}
           slot={null}
-          tile={tiles[i]}
+          tile={tiles[i + 7]}
         />
       );
     }
@@ -72,7 +72,7 @@ const TileRow = ({
           rowColor={rowColor}
           color={color}
           slot={null}
-          tile={tiles[i]}
+          tile={tiles[i + 14]}
         />
       );
     }
