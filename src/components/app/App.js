@@ -1,5 +1,5 @@
-import FullTray from '../tileTray/FullTray';
-import CurrentTray from '../tileTray/CurrentTray';
+import GameTray from '../tileTray/GameTray';
+import PlayerTray from '../tileTray/PlayerTray';
 
 const App = () => {
   return (
@@ -7,8 +7,8 @@ const App = () => {
       <header>
         <h1>Eclipse Tech Tile Tray</h1>
       </header>
-      <FullTray />
-      <CurrentTray />
+      <GameTray />
+      <PlayerTray />
     </>
   );
 };

@@ -4,18 +4,18 @@ import styles from './TileTray.module.css';
 
 const TileTray = ({ currentTiles }) => {
   const tileRowList = [];
-  // console.log('CURRENT TILES: ', currentTiles);
+  console.log(currentTiles);
   
-  for (const rowName in currentTiles) {
-    const currentRow = currentTiles[rowName]
+  for (const rowColor in currentTiles) {
+    const currentRow = currentTiles[rowColor]
     tileRowList.push(
       <TileRow
       key={currentRow.row}
-      rowName={rowName}
+      rowColor={rowColor}
       row={currentRow.row}
       slotsPerRow={currentRow.slotsPerRow}
       color={currentRow.color}
-      currentTiles={currentRow.tiles}
+      tiles={currentRow.tiles}
     />
     );
   }
@@ -35,19 +35,7 @@ const TileTray = ({ currentTiles }) => {
 
 TileTray.propTypes = {
   currentTiles: PropTypes.shape({
-    // pink: PropTypes.shape({}).isRequired,
-    // green: PropTypes.shape({}).isRequired,
-    // tan: PropTypes.shape({}).isRequired,
-    // black: PropTypes.shape({}).isRequired
   }).isRequired,
 };
 
 export default TileTray;
-
-// const rowObject = {
-//   row: PropTypes.number.isRequired,
-//   slotsPerRow: PropTypes.number.isRequired,
-//   color: PropTypes.string.isRequired,
-//   tiles: PropTypes.array.isRequired
-// };
-// console.log(rowObject);

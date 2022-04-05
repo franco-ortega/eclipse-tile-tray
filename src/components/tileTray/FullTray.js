@@ -2,16 +2,16 @@ import TileRow from "../tileRow/TileRow";
 import styles from './TileTray.module.css';
 import { useTrayContext } from "../../state/TrayContext";
 
-const TileTray = () => {
+const FullTray = () => {
   const { allTiles } = useTrayContext();
   const tileRowList = [];
   
-  for (const rowName in allTiles) {
-    const currentRow = allTiles[rowName]
+  for (const rowColor in allTiles) {
+    const currentRow = allTiles[rowColor]
     tileRowList.push(
       <TileRow
       key={currentRow.row}
-      rowName={rowName}
+      rowColor={rowColor}
       row={currentRow.row}
       slotsPerRow={currentRow.slotsPerRow}
       color={currentRow.color}
@@ -33,4 +33,4 @@ const TileTray = () => {
   );
 };
 
-export default TileTray;
+export default FullTray;

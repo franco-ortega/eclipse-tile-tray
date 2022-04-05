@@ -5,7 +5,7 @@ import styles from './Tile.module.css';
 import { useState } from 'react';
 
 const Tile = ({
-  rowName,
+  rowColor,
   color,
   slot,
   tile
@@ -16,24 +16,15 @@ const Tile = ({
   const onTileClick = () => {
     if(tile.active) {
       setCurrentTray(prevState => {
-        prevState[rowName].tiles.forEach((currentTile) => {
-          if(currentTile.title === tile.title) {
-            // if(currentTile.selected === 1 && currentTile.slotPosition === null) {
-            //   console.log('fenjwon')
-            //   prevState[rowName].tiles.splice(i, 1)
-            // } else {
-            //   // currentTile.selected--;
-            // }
-            currentTile.selected--;
-          }
+        prevState[rowColor].tiles.forEach((currentTile) => {
+          if(currentTile.title === tile.title) currentTile.selected--;
         });
-
         return prevState;
       });
     } else {
       let existingTile = false;
       setCurrentTray(prevState => {
-        prevState[rowName].tiles.forEach(currentTile => {
+        prevState[rowColor].tiles.forEach(currentTile => {
           if(currentTile.title === tile.title) {
             existingTile = true;
             if(currentTile.selected < currentTile.limit) {
@@ -59,10 +50,10 @@ const Tile = ({
 
           if(!tile.slotPosition) setIsDisabled(true);
 
-          prevState[rowName].tiles = [...prevState[rowName].tiles, newTile];
+          prevState[rowColor].tiles = [...prevState[rowColor].tiles, newTile];
         }
 
-        prevState[rowName].tiles.sort((a, b) => a.slotPosition - b.slotPosition);
+        prevState[rowColor].tiles.sort((a, b) => a.slotPosition - b.slotPosition);
   
         return prevState;
       });
@@ -96,7 +87,7 @@ const Tile = ({
 };
 
 Tile.propTypes = {
-  rowName: PropTypes.string,
+  rowColor: PropTypes.string,
   color: PropTypes.string,
   slot: PropTypes.number,
   tile: PropTypes.shape({

@@ -3,17 +3,18 @@ import TileSpace from '../tileSpace/TileSpace';
 import styles from './TileRow.module.css';
 
 const TileRow = ({
-  rowName,
+  rowColor,
   row,
   slotsPerRow,
   color,
   tiles
 }) => {
-  const tileSpaceListNew = [];
-  const tileSpaceListNewTwo = [];
-  const tileSpaceListNewThree = [];
+  const tileSpacesInThisRow = [];
+  const tileSpacesInBlackRowOne = [];
+  const tileSpacesInBlackRowTwo = [];
+  const tileSpacesInBlackRowThree = [];
 
-  if(row < 4) {
+  if(slotsPerRow === 8) {
     // The tile must go into the slot with the corresponding position
     for(let i = 0; i < slotsPerRow; i++) {
       const currentSlot = (i + 1) * 2;
@@ -27,10 +28,10 @@ const TileRow = ({
         }
       }
 
-      tileSpaceListNew.push(
+      tileSpacesInThisRow.push(
         <TileSpace
           key={`${row}${i}`}
-          rowName={rowName}
+          rowColor={rowColor}
           color={color}
           slot={currentSlot}
           tile={tileToInsert}
@@ -39,77 +40,71 @@ const TileRow = ({
     }
   } else {
     // The last row does NOT display a slot number; nor does it care about the slot where a tile is inserted; it simply places the tile in the first (left-most) slot available
-    if(tiles.length > 0) {
-      console.log('length > 0')
-      for(let i = 0; i < tiles.length; i++) {
-        if(i < 7) {
-          tileSpaceListNew.push(
-            <TileSpace
-              key={`${row}${i}`}
-              rowName={rowName}
-              color={color}
-              slot={null}
-              tile={tiles[i]}
-            />
-          );
-        } else if(i >= 7 && i < 14) {
-          tileSpaceListNewTwo.push(
-            <TileSpace
-              key={`${row}${i}`}
-              rowName={rowName}
-              color={color}
-              slot={null}
-              tile={tiles[i]}
-            />
-          );
-        } else if (i >= 14 && i < 21) {
-          tileSpaceListNewThree.push(
-            <TileSpace
-              key={`${row}${i}`}
-              rowName={rowName}
-              color={color}
-              slot={null}
-              tile={tiles[i]}
-            />
-          );
-        }
-      }
-    } else {
-      console.log('length === 0');
-      let i = 0;
-      do {
-        tileSpaceListNew.push(
-          <TileSpace
-            key={`${row}${i}`}
-            rowName={rowName}
-            color={color}
-            slot={null}
-            tile={tiles[i]}
-          />
-        );
-        i++;
-      } while ( i < slotsPerRow);
+    for(let i = 0; i < slotsPerRow; i++) {
+      tileSpacesInBlackRowOne.push(
+        <TileSpace
+          key={`${row}${i}`}
+          rowColor={rowColor}
+          color={color}
+          slot={null}
+          tile={tiles[i]}
+        />
+      );
     }
 
+    for(let i = 0; i < slotsPerRow; i++) {
+      tileSpacesInBlackRowTwo.push(
+        <TileSpace
+          key={`${row}${i}`}
+          rowColor={rowColor}
+          color={color}
+          slot={null}
+          tile={tiles[i + 7]}
+        />
+      );
+    }
+
+    for(let i = 0; i < slotsPerRow; i++) {
+      tileSpacesInBlackRowThree.push(
+        <TileSpace
+          key={`${row}${i}`}
+          rowColor={rowColor}
+          color={color}
+          slot={null}
+          tile={tiles[i + 14]}
+        />
+      );
+    }
   }
 
   return (
     <>
-      <ul className={styles.TileRow}>
-        {tileSpaceListNew}
-      </ul>
-      {tileSpaceListNewTwo.length > 0 && <ul className={styles.TileRow}>
-        {tileSpaceListNewTwo}
-      </ul>}
-      {tileSpaceListNewThree.length > 0 && <ul className={styles.TileRow}>
-        {tileSpaceListNewThree}
-      </ul>}
+      {tileSpacesInThisRow.length > 0 &&
+        <ul className={styles.TileRow}>
+          {tileSpacesInThisRow}
+        </ul>
+      }
+      {tileSpacesInBlackRowOne.length > 0 &&
+        <ul className={styles.TileRow}>
+          {tileSpacesInBlackRowOne}
+        </ul>
+      }
+      {tileSpacesInBlackRowTwo.length > 0 && tiles.length > 7 &&
+        <ul className={styles.TileRow}>
+          {tileSpacesInBlackRowTwo}
+        </ul>
+      }
+      {tileSpacesInBlackRowThree.length > 0 && tiles.length > 14 &&
+        <ul className={styles.TileRow}>
+          {tileSpacesInBlackRowThree}
+        </ul>
+      }
     </>
   );
 };
 
 TileRow.propTypes = {
-  rowName: PropTypes.string.isRequired,
+  rowColor: PropTypes.string.isRequired,
   row: PropTypes.number.isRequired,
   slotsPerRow: PropTypes.number.isRequired,
   color: PropTypes.string.isRequired,
