@@ -3,16 +3,16 @@ import TileSpace from '../tileSpace/TileSpace';
 import styles from './TileRow.module.css';
 
 const TileRow = ({
-  rowColor,
+  rowType,
   row,
   slotsPerRow,
   color,
   tiles
 }) => {
   const standardTileSpacesRow = [];
-  const alienTileSpacesRowOne = [];
-  const alienTileSpacesRowTwo = [];
-  const alienTileSpacesRowThree = [];
+  const rareTileSpacesRowOne = [];
+  const rareTileSpacesRowTwo = [];
+  const rareTileSpacesRowThree = [];
 
   if(slotsPerRow === 8) {
     // The tile must go into the slot with the corresponding position
@@ -31,7 +31,7 @@ const TileRow = ({
       standardTileSpacesRow.push(
         <TileSpace
           key={`${row}${i}`}
-          rowColor={rowColor}
+          rowType={rowType}
           color={color}
           slot={currentSlot}
           tile={tileToInsert}
@@ -41,10 +41,10 @@ const TileRow = ({
   } else {
     // The last row does NOT display a slot number; nor does it care about the slot where a tile is inserted; it simply places the tile in the first (left-most) slot available
     for(let i = 0; i < slotsPerRow; i++) {
-      alienTileSpacesRowOne.push(
+      rareTileSpacesRowOne.push(
         <TileSpace
           key={`${row}${i}`}
-          rowColor={rowColor}
+          rowType={rowType}
           color={color}
           slot={null}
           tile={tiles[i]}
@@ -53,10 +53,10 @@ const TileRow = ({
     }
 
     for(let i = 0; i < slotsPerRow; i++) {
-      alienTileSpacesRowTwo.push(
+      rareTileSpacesRowTwo.push(
         <TileSpace
           key={`${row}${i}`}
-          rowColor={rowColor}
+          rowType={rowType}
           color={color}
           slot={null}
           tile={tiles[i + 7]}
@@ -65,10 +65,10 @@ const TileRow = ({
     }
 
     for(let i = 0; i < slotsPerRow; i++) {
-      alienTileSpacesRowThree.push(
+      rareTileSpacesRowThree.push(
         <TileSpace
           key={`${row}${i}`}
-          rowColor={rowColor}
+          rowType={rowType}
           color={color}
           slot={null}
           tile={tiles[i + 14]}
@@ -84,19 +84,19 @@ const TileRow = ({
           {standardTileSpacesRow}
         </ul>
       }
-      {alienTileSpacesRowOne.length > 0 &&
+      {rareTileSpacesRowOne.length > 0 &&
         <ul className={styles.TileRow}>
-          {alienTileSpacesRowOne}
+          {rareTileSpacesRowOne}
         </ul>
       }
-      {alienTileSpacesRowTwo.length > 0 && tiles.length > 7 &&
+      {rareTileSpacesRowTwo.length > 0 && tiles.length > 7 &&
         <ul className={styles.TileRow}>
-          {alienTileSpacesRowTwo}
+          {rareTileSpacesRowTwo}
         </ul>
       }
-      {alienTileSpacesRowThree.length > 0 && tiles.length > 14 &&
+      {rareTileSpacesRowThree.length > 0 && tiles.length > 14 &&
         <ul className={styles.TileRow}>
-          {alienTileSpacesRowThree}
+          {rareTileSpacesRowThree}
         </ul>
       }
     </>
@@ -104,7 +104,7 @@ const TileRow = ({
 };
 
 TileRow.propTypes = {
-  rowColor: PropTypes.string.isRequired,
+  rowType: PropTypes.string.isRequired,
   row: PropTypes.number.isRequired,
   slotsPerRow: PropTypes.number.isRequired,
   color: PropTypes.string.isRequired,

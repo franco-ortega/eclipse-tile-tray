@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import Tile from '../tile/Tile';
 import styles from './TileSpace.module.css';
 
-const TileSpace = ({ rowColor, color, slot, tile }) => {
+const TileSpace = ({ rowType, color, slot, tile }) => {
   // TileSpace will return a TileSpace with the appropriate Tile
   // Else it will return a TileSpace with the slot number
   
@@ -12,7 +12,7 @@ const TileSpace = ({ rowColor, color, slot, tile }) => {
       ?
         <div className={styles.TileSpace}>
           <Tile
-            rowColor={rowColor}
+            rowType={rowType}
             color={color}
             slot={slot}
             tile={tile}
@@ -28,7 +28,7 @@ const TileSpace = ({ rowColor, color, slot, tile }) => {
 };
 
 TileSpace.propTypes = {
-  rowColor: PropTypes.string.isRequired,
+  rowType: PropTypes.string.isRequired,
   color: PropTypes.string,
   slot: PropTypes.number,
   tile: PropTypes.shape({

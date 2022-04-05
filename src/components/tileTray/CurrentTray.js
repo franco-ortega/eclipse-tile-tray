@@ -6,12 +6,12 @@ const playerTiles = () => {
   const { playerTiles } = useTrayContext();
   const tileRowList = [];
   
-  for (const rowColor in playerTiles) {
-    const currentRow = playerTiles[rowColor]
+  for (const rowType in playerTiles) {
+    const currentRow = playerTiles[rowType]
     tileRowList.push(
       <TileRow
       key={currentRow.row}
-      rowColor={rowColor}
+      rowType={rowType}
       row={currentRow.row}
       slotsPerRow={currentRow.slotsPerRow}
       color={currentRow.color}

@@ -1,5 +1,5 @@
 {
-  "pink": {
+  "military": {
     "row": 1,
     "slotsPerRow": 8,
     "color": "hotpink",
@@ -35,14 +35,14 @@
       {
         "slotPosition": 10,
         "cost": { "min": 6, "max": 10},
-        "title": "Pink 10",
+        "title": "Advanced Mining",
         "selected": 0,
         "limit": 2
       },
       {
         "slotPosition": 12,
         "cost": { "min": 6, "max": 12},
-        "title": "Pink 12",
+        "title": "Tachyon Source",
         "selected": 0,
         "limit": 2
       },
@@ -62,7 +62,7 @@
       }
     ]
   },
-  "green": {
+  "grid": {
     "row": 2,
     "slotsPerRow": 8,
     "color": "darkgreen",
@@ -105,7 +105,7 @@
       {
         "slotPosition": 12,
         "cost": { "min": 6, "max": 12},
-        "title": "Green 12",
+        "title": "Tachyon Drive",
         "selected": 0,
         "limit": 2
       },
@@ -125,7 +125,7 @@
       }
     ]
   },
-  "tan": {
+  "nano": {
     "row": 3,
     "slotsPerRow": 8,
     "color": "tan",
@@ -147,7 +147,7 @@
       {
         "slotPosition": 6,
         "cost": { "min": 4, "max": 6},
-        "title": "Tan 6",
+        "title": "Orbital",
         "selected": 0,
         "limit": 2
       },
@@ -188,11 +188,18 @@
       }
     ]
   },
-  "alien": {
+  "rare": {
     "row": 4,
     "slotsPerRow": 7,
     "color": "black",
     "tiles": [
+      {
+        "slotPosition": null,
+        "cost": { "min": 5, "max": 5},
+        "title": "Antimatter Splitter",
+        "selected": 0,
+        "limit": 1
+      },
       {
         "slotPosition": null,
         "cost": { "min": 5, "max": 5},
@@ -209,8 +216,8 @@
       },
       {
         "slotPosition": null,
-        "cost": { "min": 5, "max": 5},
-        "title": "Antimatter Splitter",
+        "cost": { "min": 6, "max": 7},
+        "title": "Absorption Shield",
         "selected": 0,
         "limit": 1
       },
@@ -218,6 +225,27 @@
         "slotPosition": null,
         "cost": { "min": 6, "max": 7},
         "title": "Cloaking Device",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 6, "max": 7},
+        "title": "Improved Logistics",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 6, "max": 7},
+        "title": "Sentient Hull",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 7, "max": 9},
+        "title": "Soliton Canon",
         "selected": 0,
         "limit": 1
       },
@@ -237,92 +265,36 @@
       },
       {
         "slotPosition": null,
+        "cost": { "min": 8, "max": 11},
+        "title": "Flux Missile",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 8, "max": 11},
+        "title": "Pico Modulator",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 9, "max": 13},
+        "title": "Ancient Labs",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
+        "cost": { "min": 10, "max": 15},
+        "title": "Zero Point Source",
+        "selected": 0,
+        "limit": 1
+      },
+      {
+        "slotPosition": null,
         "cost": { "min": 11, "max": 17},
         "title": "Meta-synthesis",
-        "selected": 0,
-        "limit": 1
-      },
-      {
-        "slotPosition": null,
-        "cost": { "min": 11, "max": 17},
-        "title": "Test ONE",
-        "selected": 0,
-        "limit": 1
-      },
-      {
-        "slotPosition": null,
-        "cost": { "min": 11, "max": 17},
-        "title": "Test TWO",
-        "selected": 0,
-        "limit": 1
-      },
-      {
-        "slotPosition": null,
-        "cost": { "min": 11, "max": 17},
-        "title": "Test THREE",
-        "selected": 0,
-        "limit": 1
-      },
-      {
-        "slotPosition": null,
-        "cost": { "min": 11, "max": 17},
-        "title": "Test FOUR",
-        "selected": 0,
-        "limit": 1
-      },
-      {
-        "slotPosition": null,
-        "cost": { "min": 11, "max": 17},
-        "title": "Test FIVE",
-        "selected": 0,
-        "limit": 1
-      },
-      {
-        "slotPosition": null,
-        "cost": { "min": 11, "max": 17},
-        "title": "Test SIX",
-        "selected": 0,
-        "limit": 1
-      },
-      {
-        "slotPosition": null,
-        "cost": { "min": 11, "max": 17},
-        "title": "Test SEVEN",
-        "selected": 0,
-        "limit": 1
-      },
-      {
-        "slotPosition": null,
-        "cost": { "min": 11, "max": 17},
-        "title": "Test ONE B",
-        "selected": 0,
-        "limit": 1
-      },
-      {
-        "slotPosition": null,
-        "cost": { "min": 11, "max": 17},
-        "title": "Test TWO B",
-        "selected": 0,
-        "limit": 1
-      },
-      {
-        "slotPosition": null,
-        "cost": { "min": 11, "max": 17},
-        "title": "Test THREE B",
-        "selected": 0,
-        "limit": 1
-      },
-      {
-        "slotPosition": null,
-        "cost": { "min": 11, "max": 17},
-        "title": "Test FOUR B",
-        "selected": 0,
-        "limit": 1
-      },
-      {
-        "slotPosition": null,
-        "cost": { "min": 11, "max": 17},
-        "title": "Test FIVE B",
         "selected": 0,
         "limit": 1
       }

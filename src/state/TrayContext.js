@@ -13,8 +13,8 @@ export const TrayProvider = ({ children }) => {
   const startingTray = JSON.parse(JSON.stringify(tilesObjectData));
 
   // This will remove the tiles from the starting tray
-  for (const rowColor in startingTray) {
-    startingTray[rowColor].tiles = []
+  for (const rowType in startingTray) {
+    startingTray[rowType].tiles = []
   }
 
   const changeTray = () => {
@@ -23,8 +23,8 @@ export const TrayProvider = ({ children }) => {
 
   let tilesAvailable = false;
 
-  for (const rowColor in playerTiles) {
-    if(playerTiles[rowColor].tiles.length > 0) tilesAvailable = true;
+  for (const rowType in playerTiles) {
+    if(playerTiles[rowType].tiles.length > 0) tilesAvailable = true;
   }
 
   useEffect(() => {

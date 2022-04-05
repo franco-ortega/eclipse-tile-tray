@@ -5,7 +5,7 @@ import styles from './Tile.module.css';
 import { useState } from 'react';
 
 const Tile = ({
-  rowColor,
+  rowType,
   color,
   slot,
   tile
@@ -16,7 +16,7 @@ const Tile = ({
   const onTileClick = () => {
     if(tile.active) {
       setPlayerTiles(prevState => {
-        prevState[rowColor].tiles.forEach((currentTile) => {
+        prevState[rowType].tiles.forEach((currentTile) => {
           if(currentTile.title === tile.title) currentTile.selected--;
         });
         return prevState;
@@ -24,7 +24,7 @@ const Tile = ({
     } else {
       let existingTile = false;
       setPlayerTiles(prevState => {
-        prevState[rowColor].tiles.forEach(currentTile => {
+        prevState[rowType].tiles.forEach(currentTile => {
           if(currentTile.title === tile.title) {
             existingTile = true;
             if(currentTile.selected < currentTile.limit) {
@@ -50,10 +50,10 @@ const Tile = ({
 
           if(!tile.slotPosition) setIsDisabled(true);
 
-          prevState[rowColor].tiles = [...prevState[rowColor].tiles, newTile];
+          prevState[rowType].tiles = [...prevState[rowType].tiles, newTile];
         }
 
-        prevState[rowColor].tiles.sort((a, b) => a.slotPosition - b.slotPosition);
+        prevState[rowType].tiles.sort((a, b) => a.slotPosition - b.slotPosition);
   
         return prevState;
       });
@@ -87,7 +87,7 @@ const Tile = ({
 };
 
 Tile.propTypes = {
-  rowColor: PropTypes.string,
+  rowType: PropTypes.string,
   color: PropTypes.string,
   slot: PropTypes.number,
   tile: PropTypes.shape({
