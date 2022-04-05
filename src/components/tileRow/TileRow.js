@@ -13,7 +13,6 @@ const TileRow = ({
   const tileSpacesInBlackRowOne = [];
   const tileSpacesInBlackRowTwo = [];
   const tileSpacesInBlackRowThree = [];
-  console.log(tiles);
 
   if(slotsPerRow === 8) {
     // The tile must go into the slot with the corresponding position

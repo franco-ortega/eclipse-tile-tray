@@ -4,7 +4,6 @@ import styles from './TileTray.module.css';
 
 const TileTray = ({ currentTiles }) => {
   const tileRowList = [];
-  // console.log('CURRENT TILES: ', currentTiles);
   
   for (const rowName in currentTiles) {
     const currentRow = currentTiles[rowName]
@@ -35,19 +34,7 @@ const TileTray = ({ currentTiles }) => {
 
 TileTray.propTypes = {
   currentTiles: PropTypes.shape({
-    // pink: PropTypes.shape({}).isRequired,
-    // green: PropTypes.shape({}).isRequired,
-    // tan: PropTypes.shape({}).isRequired,
-    // black: PropTypes.shape({}).isRequired
   }).isRequired,
 };
 
 export default TileTray;
-
-// const rowObject = {
-//   row: PropTypes.number.isRequired,
-//   slotsPerRow: PropTypes.number.isRequired,
-//   color: PropTypes.string.isRequired,
-//   tiles: PropTypes.array.isRequired
-// };
-// console.log(rowObject);

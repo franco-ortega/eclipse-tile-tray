@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-// import { useEffect } from 'react';
 import Tile from '../tile/Tile';
 import styles from './TileSpace.module.css';
 
@@ -11,10 +10,7 @@ const TileSpace = ({ rowColor, color, slot, tile }) => {
     <>
       {tile
       ?
-        <div
-          className={styles.TileSpace}
-          // style={{ justifyContent: 'center' }}
-          >
+        <div className={styles.TileSpace}>
           <Tile
             rowColor={rowColor}
             color={color}

@@ -17,17 +17,8 @@ const Tile = ({
     if(tile.active) {
       setCurrentTray(prevState => {
         prevState[rowColor].tiles.forEach((currentTile) => {
-          if(currentTile.title === tile.title) {
-            // if(currentTile.selected === 1 && currentTile.slotPosition === null) {
-            //   console.log('fenjwon')
-            //   prevState[rowColor].tiles.splice(i, 1)
-            // } else {
-            //   // currentTile.selected--;
-            // }
-            currentTile.selected--;
-          }
+          if(currentTile.title === tile.title) currentTile.selected--;
         });
-
         return prevState;
       });
     } else {
