@@ -5,26 +5,29 @@ import styles from './Tile.module.css';
 import { useState } from 'react';
 
 const Tile = ({
-  rowColor,
+  rowType,
   color,
   slot,
   tile
 }) => {
-  const { setCurrentTray, changeTray } = useTrayContext();
+  const {
+    setPlayerTiles,
+    changeTray,
+  } = useTrayContext();
   const [ isDisabled, setIsDisabled ] = useState(false);
 
   const onTileClick = () => {
     if(tile.active) {
-      setCurrentTray(prevState => {
-        prevState[rowColor].tiles.forEach((currentTile) => {
+      setPlayerTiles(prevState => {
+        prevState[rowType].tiles.forEach((currentTile) => {
           if(currentTile.title === tile.title) currentTile.selected--;
         });
         return prevState;
       });
     } else {
       let existingTile = false;
-      setCurrentTray(prevState => {
-        prevState[rowColor].tiles.forEach(currentTile => {
+      setPlayerTiles(prevState => {
+        prevState[rowType].tiles.forEach(currentTile => {
           if(currentTile.title === tile.title) {
             existingTile = true;
             if(currentTile.selected < currentTile.limit) {
@@ -50,10 +53,10 @@ const Tile = ({
 
           if(!tile.slotPosition) setIsDisabled(true);
 
-          prevState[rowColor].tiles = [...prevState[rowColor].tiles, newTile];
+          prevState[rowType].tiles = [...prevState[rowType].tiles, newTile];
         }
 
-        prevState[rowColor].tiles.sort((a, b) => a.slotPosition - b.slotPosition);
+        prevState[rowType].tiles.sort((a, b) => a.slotPosition - b.slotPosition);
   
         return prevState;
       });
@@ -78,7 +81,14 @@ const Tile = ({
                 {tile.cost.min}
               </span>
             </p>
-            <p>{tile.selected > 0 && <Count selected={tile.selected} />}</p>
+            <p>
+              {
+                tile.selected > 0
+                &&
+                <Count selected={tile.selected} />
+
+              }
+            </p>
           </button>
         : slot
       }
@@ -87,7 +97,7 @@ const Tile = ({
 };
 
 Tile.propTypes = {
-  rowColor: PropTypes.string,
+  rowType: PropTypes.string,
   color: PropTypes.string,
   slot: PropTypes.number,
   tile: PropTypes.shape({

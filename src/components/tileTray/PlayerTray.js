@@ -2,9 +2,9 @@ import { useTrayContext } from "../../state/TrayContext";
 import TileTray from "./TileTray";
 
 const PlayerTray = () => {
-  const { currentTray } = useTrayContext();
+  const { playerTiles } = useTrayContext();
   return (
-    <TileTray currentTiles={currentTray} />
+    <TileTray currentTiles={playerTiles} />
   )
 }
 

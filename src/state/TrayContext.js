@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const TrayContext = createContext(null);
 
 export const TrayProvider = ({ children }) => {
-  const [currentTray, setCurrentTray] = useState({});
+  const [playerTiles, setPlayerTiles] = useState({});
   const [updateTray, setUpdateTray] = useState(false);
 
   const [allTiles, setAllTiles] = useState({});
@@ -13,8 +13,8 @@ export const TrayProvider = ({ children }) => {
   const startingTray = JSON.parse(JSON.stringify(tilesObjectData));
 
   // This will remove the tiles from the starting tray
-  for (const rowColor in startingTray) {
-    startingTray[rowColor].tiles = []
+  for (const rowType in startingTray) {
+    startingTray[rowType].tiles = []
   }
 
   const changeTray = () => {
@@ -23,8 +23,8 @@ export const TrayProvider = ({ children }) => {
 
   let tilesAvailable = false;
 
-  for (const rowColor in currentTray) {
-    if(currentTray[rowColor].tiles.length > 0) tilesAvailable = true;
+  for (const rowType in playerTiles) {
+    if(playerTiles[rowType].tiles.length > 0) tilesAvailable = true;
   }
 
   useEffect(() => {
@@ -33,16 +33,16 @@ export const TrayProvider = ({ children }) => {
 
   
   useEffect(() => {
-      if(!tilesAvailable) setCurrentTray(startingTray);
-      else setCurrentTray(currentTray);
+      if(!tilesAvailable) setPlayerTiles(startingTray);
+      else setPlayerTiles(playerTiles);
 
   }, [updateTray]);
 
   return (
     <TrayContext.Provider value={{
       allTiles,
-      currentTray,
-      setCurrentTray,
+      playerTiles,
+      setPlayerTiles,
       changeTray,
       updateTray
     }}>{children}</TrayContext.Provider>
@@ -52,16 +52,16 @@ export const TrayProvider = ({ children }) => {
 export const useTrayContext = () => {
   const {
     allTiles,
-    currentTray,
-    setCurrentTray,
+    playerTiles,
+    setPlayerTiles,
     changeTray,
     updateTray
   } = useContext(TrayContext);
 
   return {
     allTiles,
-    currentTray,
-    setCurrentTray,
+    playerTiles,
+    setPlayerTiles,
     changeTray,
     updateTray
   }

@@ -4,14 +4,13 @@ import styles from './TileTray.module.css';
 
 const TileTray = ({ currentTiles }) => {
   const tileRowList = [];
-  console.log(currentTiles);
   
-  for (const rowColor in currentTiles) {
-    const currentRow = currentTiles[rowColor]
+  for (const rowType in currentTiles) {
+    const currentRow = currentTiles[rowType]
     tileRowList.push(
       <TileRow
       key={currentRow.row}
-      rowColor={rowColor}
+      rowType={rowType}
       row={currentRow.row}
       slotsPerRow={currentRow.slotsPerRow}
       color={currentRow.color}
